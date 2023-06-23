@@ -1,0 +1,28 @@
+input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.alert-gray {
+  color: #383838;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background-color: #eb455e69;
+}
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-label {
+  color: #999; /* Cambiar a cualquier tono de gris */
+}

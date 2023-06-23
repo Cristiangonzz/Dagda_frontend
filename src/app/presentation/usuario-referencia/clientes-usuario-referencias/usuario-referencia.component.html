@@ -1,0 +1,55 @@
+
+
+
+<div class="table-container" style="margin-top: 100px; text-align: center;padding-bottom: 60px; overflow: auto;">
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-12 col-lg-8">
+          <div class="card" style="text-align: center; height: 200px;">
+              <div class="card-body">
+                  <h4>Expande el conocimiento</h4>
+                  <h5>Link de invitacion</h5>
+                  <div class="input-group mb-3">
+                      <input #textToCopy type="text" class="form-control" value="http://localhost:4200/usuario/invitacion/{{this.usuarioActual.usuarioId}}" disabled>
+                      <button class="btn btn-outline-secondary" (click)="copyText(textToCopy.value)" type="button" id="copiador">
+                        {{ copiado ? 'Copiado' : 'Copiar' }}
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br>
+
+  <table class="table table-bordered " style="width: 80%; margin: 0 auto;">
+    <thead class="table-head">
+      <tr class="bg-success text-white">
+        <th>Sr</th>
+        <th scope="col">Referencias</th>
+        <th scope="col">Fecha referencias</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let referencia of usuarioReferencia; let srNo  = index">
+        <td>{{srNo +1}}</td>
+        <td>{{referencia.usu_referido}}</td>
+        <td>{{referencia.fecha_referencia}}</td>
+        <td>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Acciones
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <li><a type="submit" class="dropdown-item">Eliminar</a></li>
+              <li><a class="dropdown-item" >Editar</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

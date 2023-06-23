@@ -1,0 +1,66 @@
+<div class="container-fluid" style="margin-top: 100px;">
+  <div class="row">
+      <div class="col-12 mt-3">
+          <div class="card">
+              <div class="card-horizontal">
+                  <div class="img-square-wrapper">
+                    <img [src]="curso.imagen" class="card-img-top"  style="width: 300px;"  alt="{{curso.titulo}}" >
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">{{curso.titulo}}</h4>
+                      <h4 class="card-title">{{curso.detalle}}</h4>
+                      <p class="card-text" [innerHTML]="curso.descripcion"></p>
+                  </div>
+              </div>
+              <div class="card-footer">
+                <div *ngIf="!rol && !suscripto" class="card-body">
+                  <button class="subbt" (click)="inscribirUsuario(curso)">
+                    inscribirse
+                  </button>
+                </div>
+  
+                <div *ngIf="!rol && suscripto" class="card-body">
+                  <button class="subbt">
+                    Inscripto
+                  </button>
+                 
+                  <button class="subbt" style="margin: 5px;" (click)="carrito()">
+                    Pagar Ahora
+                  </button>
+                  
+                </div>
+              
+              </div>
+
+            
+          
+
+              <div class="accordion" id="accordionPanelsStayOpenExample" *ngFor="let programa of curso.programa">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                      {{programa.tituloPrograma}}
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                     {{programa.descripcionPrograma}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              
+
+            
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+

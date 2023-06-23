@@ -1,0 +1,75 @@
+<div class="container d-flex justify-content-center" >
+    <div class="row" style="margin-top:  80px;">
+      <div class="col">
+        <h2 class="form-title">Actualizar Curso</h2>
+  
+        <form (ngSubmit)="send()" [formGroup]="FormUpdate">
+          <div class="form-group">
+            <app-form
+              [control]="FormUpdate.controls.titulo"
+              type="text"
+              label="titulo"
+              placeHolder=""
+            ></app-form>
+          </div>
+          
+  
+  <div class="form-group">
+    <label class="form-label">Descripcion</label>
+    <angular-editor formControlName="descripcion"></angular-editor>
+  </div>
+          <div class="form-group">
+            <label class="form-label">Categoria</label>
+                <select formControlName="categoria" class="form-control" [value]="this.curso.categoria" >
+                  <option *ngFor="let opcion of categorias">{{ opcion }}</option>
+                </select>
+          </div>
+          <input type="file" (change)="onFileSelected($event)">
+          <div *ngIf="this.curso.imagen">
+            <img  width="100px"  [src]="this.curso.imagen" alt="Imagen desde el backend">
+          </div>
+         
+  
+          <div class="form-group">
+            <app-form
+              [control]="FormUpdate.controls.detalle"
+              type="text"
+              label="detalle"
+              placeHolder=""
+            ></app-form>
+          </div>
+          <div class="form-group">
+            <app-form
+              [control]="FormUpdate.controls.precio"
+              type="number"
+              label="precio"
+              placeHolder=""
+            ></app-form>
+          </div>
+  
+        
+  
+          <div class="form-group" style="margin: 3px;">
+            <button
+            
+            style="margin: 3px;"
+              type="submit"
+              [disabled]="FormUpdate.invalid"
+              class="btn btn-success"
+            >
+              Actualizar
+            </button>
+            <button
+            style="margin: 3px;"
+              type="button"
+              class="btn btn-danger"
+              routerLink="/usuario/adminCurso"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

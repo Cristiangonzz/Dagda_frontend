@@ -1,0 +1,43 @@
+<div class="table-container" style="margin-top: 120px; text-align: center; overflow: auto; padding-bottom: 60px;">
+  <a type="submit" routerLink="/curso/create" class="btn btn-primary">agregar usuario</a>
+  <table class="table table-bordered " style="width: 80%; margin: 0 auto;">
+    <thead class="table-head">
+      <tr class="bg-success text-white">
+        <th>Sr</th>
+        <th scope="col">tipo_usuario</th>
+        <th scope="col">primer_nombre</th>
+        <th scope="col">primer_apellido</th>
+        <th scope="col">telefono</th>
+        <th scope="col">usuario</th>
+        <th scope="col">email</th>
+        <th scope="col">vigente</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usuarios; let srNo  = index">
+        <td>{{srNo +1}}</td>
+        <td>{{ user.tipo_usuario }}</td>
+        <td>{{ user.primer_nombre }}</td>
+        <td>{{ user.primer_apellido }}</td>
+        <td>{{ user.telefono }}</td>
+        <td>{{ user.usuario }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.vigente }}</td>
+        
+        <td>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Acciones
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <li><a type="submit" class="dropdown-item"(click)="deleteUsuario(user.email)">Eliminar</a></li>
+              <li><a class="dropdown-item" (click)="editarUsuario(user.email)">Editar</a></li>
+              <li><a class="dropdown-item" href="#">Inhabilitar</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,63 @@
+
+<section class="register-account"> 
+  <div class="signform">
+      <div class="right" style="background-color: whitesmoke; padding: 40px;border-radius: 35px;">
+        
+        <div class="headit">
+          <h4 style="color:rgb(8, 82, 141);font-family:'Times New Roman', Times, serif;font-size: 25px;" >Crear Cuenta</h4>
+        </div>
+          <div class="form">
+            
+        <form [formGroup]="formCrear" >
+              <div class="container-fluid">
+                
+                  <div class="row">
+                      <div class="col-12 col-md-6">
+                        <div class="mb-3 field-usuario-usu_primer_nombre">
+                        <app-form [control]="formCrear.controls.primer_nombre" type="text" label="Nombre" placeHolder=""></app-form>
+                        <div class="invalid-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3 field-usuario-usu_primer_apellido">
+                        <app-form [control]="formCrear.controls.primer_apellido" type="text" label="Apellido" placeHolder=""></app-form>
+                      <div class="invalid-feedback"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3 field-usuario-usu_primer_nombre">
+                      <app-form [control]="formCrear.controls.telefono" type="number" label="telefono" placeHolder=""></app-form>
+                      <div class="invalid-feedback"></div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="mb-3 field-usuario-usu_primer_apellido">
+                    <app-form [control]="formCrear.controls.usuario" type="text" label="usuario" placeHolder=""></app-form>
+                    <div class="invalid-feedback"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="mb-3 field-usuario-usu_primer_nombre">
+                  <app-form [control]="formCrear.controls.email" type="email" label="Email" placeHolder="ejemplo@gmail.com"></app-form>
+                  <div class="invalid-feedback"></div>
+                </div>
+               </div>
+            <div class="col-12 col-md-6">
+              <div class="mb-3 field-usuario-usu_primer_apellido">
+                <app-form [control]="formCrear.controls.clave" type="password" label="Password" placeHolder=""></app-form>
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="subbt" (click)="signUp()" style="align-items: center;margin-left: 200px;"> Registrar </button>
+      </form> 
+    </div>
+  </div>
+</div>       
+</section>

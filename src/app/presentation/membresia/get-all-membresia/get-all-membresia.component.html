@@ -1,0 +1,107 @@
+<div class="container" style="margin: 70px;">
+    <div class="row">
+      <div class="col-md-12 plan-container-wrapper">
+        <h1 class="plan-title text-center" style="margin: 15px;color:rgb(8, 82, 141);font-family:'Times New Roman', Times, serif;font-size: 25px;" >Membresias</h1>
+        <p class="text-center">Estas son algunas cuentas que puedes adquirir para aumentar tu inversión.</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 subscription-wrapper">
+            <div class="subscription-title-wrapper">
+              <h4 class="subscription-title">{{membresias[2].nombre}}</h4>
+              <h3 class="title-per-month"><strong>S$U {{membresias[2].costo}}</strong> <span class="per-month">/mes</span></h3>
+            </div>
+            <div class="subscription-content-wrapper">
+              <ul class="subscription-content">
+                <li><strong>10%</strong> de comisión en ventas directas.</li>
+                <li><strong>30%</strong> financiación en 1 curso al mes categoría 1.</li>
+                <li>Acceso al contenido mensual.</li>
+                <li>Herramientas de marketing</li>
+                <li> Membresía semestral</li>
+                <li> Pago de comisiones 48 hs. luego de iniciado el curso.</li>
+              </ul>
+              <div *ngIf="!membresias[2].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[2].nombre)">
+                  Suscribirse</button>
+              </div>
+              <div *ngIf="membresias[2].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[2].nombre)">
+                  Suscripto</button>
+              </div>
+            </div>
+        </div>
+      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 subscription-wrapper">
+            <div class="subscription-title-wrapper">
+              <h4 class="subscription-title">{{membresias[1].nombre}}</h4>
+              <h3 class="title-per-month"><strong>S$U {{membresias[1].costo}}</strong> <span class="per-month">/mes</span></h3>
+            </div>
+            <div class="subscription-content-wrapper">
+              <ul class="subscription-content">
+                <li><strong>10%</strong> de comisión en ventas directas.</li>
+                <li><strong>30%</strong> financiación en 1 curso al mes categoría 1.</li>
+                <li>Acceso al contenido mensual.</li>
+                <li>Herramientas de marketing</li>
+                <li> Membresía semestral</li>
+                <li> Pago de comisiones 48 hs. luego de iniciado el curso.</li>
+              </ul>
+              <div *ngIf="!membresias[1].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[1].nombre)">
+                  Suscribirse</button>
+              </div>
+              <div *ngIf="membresias[1].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[1].nombre)">
+                  Suscripto</button>
+              </div>
+            </div>
+        </div>
+      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 subscription-wrapper">
+        <div class="best-choose">Best Choose</div>
+            <div class="subscription-title-wrapper">
+              <h4 class="subscription-title">{{membresias[0].nombre}}</h4>
+              <h3 class="title-per-month"><strong>S$U{{membresias[0].costo}}</strong> <span class="per-month">/mes</span></h3>
+            </div>
+            <div class="subscription-content-wrapper">
+              <ul class="subscription-content">
+                <li><strong>10%</strong> de comisión en ventas directas.</li>
+                <li><strong>30%</strong> financiación en 1 curso al mes categoría 1.</li>
+                <li>Acceso al contenido mensual.</li>
+                <li>Herramientas de marketing</li>
+                <li> Membresía semestral</li>
+                <li> Pago de comisiones 48 hs. luego de iniciado el curso.</li>
+              </ul>
+              <div *ngIf="!membresias[0].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[0].nombre)">
+                  Suscribirse</button>
+              </div>
+              <div *ngIf="membresias[0].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[0].nombre)">
+                  Suscripto</button>
+              </div>
+            </div>
+        </div>
+      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 subscription-wrapper">
+            <div class="subscription-title-wrapper">
+              <h4 class="subscription-title">{{membresias[3].nombre}}</h4>
+              <h3 class="title-per-month"><strong>S$U {{membresias[3].costo}}</strong> <span class="per-month">/mes</span></h3>
+            </div>
+            <div class="subscription-content-wrapper">
+              <ul class="subscription-content">
+                <li><strong>10%</strong> de comisión en ventas directas.</li>
+                <li><strong>30%</strong> financiación en 1 curso al mes categoría 1.</li>
+                <li>Acceso al contenido mensual.</li>
+                <li>Herramientas de marketing</li>
+                <li> Membresía semestral</li>
+                <li> Pago de comisiones 48 hs. luego de iniciado el curso.</li>
+              </ul>
+              <div *ngIf="!membresias[3].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[3].nombre)">
+                  Suscribirse</button>
+              </div>
+              <div *ngIf="membresias[3].vigente" class="subscription-button-wrapper">
+                <button class="subbt" (click)="asignarMembresiaUsuario(membresias[3].nombre)">
+                  Suscripto</button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>

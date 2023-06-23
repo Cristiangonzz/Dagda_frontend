@@ -1,0 +1,38 @@
+<div class="table-container" style="margin-top: 100px; text-align: center;padding-bottom: 60px; overflow: auto;">
+  <a type="submit" routerLink="/curso/create" class="btn btn-primary">Nuevo Curso</a>
+  <table class="table table-bordered " style="width: 80%; margin: 0 auto;">
+    <thead class="table-head">
+      <tr class="bg-success text-white">
+        <th>Sr</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses; let srNo  = index">
+        <td>{{srNo +1}}</td>
+        <td>{{ course.titulo }}</td>
+        <td [innerHTML]="course.descripcion"></td>
+        <td>{{course.detalle}}</td>
+        <td>{{course.precio}}</td>
+        <td>{{course.vigente}}</td>
+        <td>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Acciones
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <li><a type="submit" class="dropdown-item"(click)="deleteCourse(course.titulo)">Eliminar</a></li>
+              <li><a class="dropdown-item" (click)="editarCurso(course.titulo)">Editar</a></li>
+              <li><a class="dropdown-item" href="#">Inhabilitar</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

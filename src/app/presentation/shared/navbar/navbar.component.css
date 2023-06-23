@@ -1,0 +1,160 @@
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+} 
+
+.navbar.bg-dark {
+  background-color: red;
+}
+
+.nav-link {
+  color: rgb(212, 210, 210);
+}
+
+.nav-link active {
+  color: #ff0707;
+
+
+}
+.navbar-brand { 
+  color: rgb(255, 255, 255);
+}
+
+mat-toolbar {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000000f0;
+}
+.img-round {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+}
+.main-icono {
+  height: auto;
+  width: auto;
+  background-color: #08084000;
+  border: none;
+}
+.menu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  color: white;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* Notification */
+.dropdown {
+  position: relative;
+}
+.dropdown span {
+  color: #fff;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: -8px;
+  right: -5px;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0.625em;
+  font-weight: 600;
+}
+.dropdown img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+/* Notification Dropdown */
+.list-group .lg {
+  height: 500px;
+  width: 270px;
+  overflow: auto;
+}
+.list-group .list-group-item {
+  border-radius: 0;
+  letter-spacing: 0.5px;
+}
+.list-group h5 {
+  font-size: 0.6875em;
+  font-weight: 700;
+  line-height: 2;
+}
+.list-group p {
+  font-size: 0.5625em;
+  font-weight: 400;
+  line-height: 2;
+}
+
+.margin-left {
+  margin-right: 6rem;
+}
+
+.class-bg {
+  background-color: #bad7e9 !important;
+}
+.dropdown-menu-container {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  /* Estilos adicionales para el menú desplegable hacia abajo y hacia la izquierda */
+  transform: translateX(-100%);
+}
+
+/* Style para el carrito */
+.navbar {
+  
+  display: flex;
+
+  background-color: #56a8db;
+  border-bottom: 1px solid lightgrey;
+  background-color: #030301;
+  color:rgb(255, 255, 255);
+  
+  &-cart{
+      position: relative;
+      margin-right: 1rem;
+      
+  
+  &-items{
+      position: absolute;
+      left: 8.5px;
+      top: -0.8rem;
+      color:white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      background-color: rgb(172, 14, 14);
+      height: 20px;
+      width: 20px;
+      
+  }
+}
+}
+.cart{
+  display: none;
+}
+

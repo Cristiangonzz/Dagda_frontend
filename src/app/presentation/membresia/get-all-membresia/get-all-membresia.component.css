@@ -1,0 +1,89 @@
+.plan-container-wrapper{
+  margin-top: 20px;
+}
+
+.subscription-wrapper{
+  background: #ffffff;
+  border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 1px 10px 10px 1px #b3b0b0;
+  
+  &:hover{
+    box-shadow: 1px 10px 10px 1px #011af5;
+  }
+  
+.best-choose{
+    background: #ff9900;
+    text-transform: uppercase;
+    color: #111111;
+    position: absolute;
+    width: 117px;
+    top: 0px;
+    left: 85px;  
+  }
+  
+  .subscription-title{
+    margin-top: 30px;
+    font-weight: 400;
+    color: #000000;
+  }
+  
+  .per-month{
+    font-weight: 400;
+    color: #b3b0b0;
+  }
+  
+  .subscription-content-wrapper{
+    .subscription-content{
+      padding:0;
+      margin:0;
+      list-style: none;
+      
+.li{
+        line-height: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #4d3d3d;
+        
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .subscription-button-wrapper{
+    .button{
+      background: #1abc9c;
+      color: #f70d0d;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.subbt:hover {
+  background-color: #0004ff;
+  }
+  .subbt {
+  
+  text-shadow: 0 1px 0 rgba(122, 122, 122, 0.85);
+  transition: background 500ms ease-in-out 0s;
+  -webkit-transition: background 500ms ease-in-out 0s;
+  -moz-transition: background 500ms ease-in-out 0s;
+  -o-transition: background 500ms ease-in-out 0s;
+  -ms-transition: background 500ms ease-in-out 0s;
+  background-color: #3B3DEB;
+  border: none;
+  color: #FFF;
+  padding: 10px 15px 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: .9em;
+  border-radius: 3px;
+  width: 218px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  
+  }

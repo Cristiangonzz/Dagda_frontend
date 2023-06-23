@@ -1,0 +1,36 @@
+<div class="table-container" style="margin-top: 100px; text-align: center; overflow: auto; padding-bottom: 100px;">
+  <a (click)="mostrarComponente = true" class="btn btn-primary" >Agregar Categoría</a>
+  <app-create-categoria *ngIf="mostrarComponente" (confirmarCreacion)="finalizarCreacion()"></app-create-categoria> 
+ 
+    <table class="table table-bordered " style="width: 80%; margin: 0 auto;margin-top: 10px;">
+      <thead class="table-head">
+        <tr class="bg-success text-white">
+          <th>Sr</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Vigente</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias; let srNo  = index">
+          <td>{{srNo +1}}</td>
+          <td>{{ categoria.nombre }}</td>
+          <td>{{ categoria.vigente }}</td>
+          
+          <td>
+            <div class="btn-group" role="group">
+              <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Acciones
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <li><a type="submit" class="dropdown-item">Eliminar</a></li>
+                <li><a class="dropdown-item" >Editar</a></li>
+                <li><a class="dropdown-item" href="#">Inhabilitar</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

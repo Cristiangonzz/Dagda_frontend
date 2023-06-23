@@ -1,0 +1,30 @@
+<div class="productCart-wrapper">
+  <div class="cartTotal">
+   
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="container-fluid">
+                    <div class="row" id="contenedorCursos">
+                        
+                <div class="card cardCurso" style="width: 22.5rem;"  *ngFor="let curso of cursosCarrito ">
+                   
+                        <img [src]="curso.imagen" class="card-img-top" alt="{{curso.titulo}}" style="height: 18rem;width:100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{curso.titulo}}</h5>
+                            
+                        </div>
+                        <div class="productCart-total">
+                          <button class = "cart-btn-individual" (click)="pagarUnidad(curso.precio,curso.titulo!)">Pagar $ {{ curso.precio }}</button>
+                        </div>
+                </div>
+              </div>
+            </div>
+              </div>
+                    </div>
+                </div>
+   
+    </div>
+   
+    <button class="cart-btn" (click)="pagoTotal()">Pagar total  $ {{ totalPrecio }}</button>
+  </div>

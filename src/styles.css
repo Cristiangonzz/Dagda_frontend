@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+.btn-success {
+  background-color: #00b894;
+  border-color: #00b894;
+}
+
+.btn-danger {
+  background-color: #e64141;
+  border-color: #e64141;
+}
+
+.btn-primary {
+  background-color: #006eb8;
+  border-color: #006eb8;
+}
+
+.btn-outline-primary {
+  border-color: #00b894 !important;
+}
+
+.btn-outline-primary:hover {
+  border-color: #00b894 !important;
+  background-color: #00b894;
+  color: white;
+}
+
+.btn-outline-primary:active {
+  border-color: #00b894 !important;
+  background-color: #00b894 !important;
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-navbar,
+app-footer {
+  flex-shrink: 0;
+}
+
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
