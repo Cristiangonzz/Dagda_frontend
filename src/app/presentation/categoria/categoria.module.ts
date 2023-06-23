@@ -22,7 +22,7 @@ import { TablaCategoriaComponent } from './tabla/tabla-categoria.component';
     HttpClientModule,
     SharedModule,
     RoutingCategoriaModule,
-    InfrastructureModule,
+   // InfrastructureModule,
   ],
   exports: [
     CreateCategoriaComponent,

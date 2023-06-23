@@ -22,7 +22,7 @@ import { SuccessComponent } from './pago-mercado-pago/success/success.component'
     NgxPaginationModule,
     HttpClientModule,
     RoutingCarritoModule,
-    InfrastructureModule,
+    //InfrastructureModule,
   ],
   exports: [CarritoComponent],
 })

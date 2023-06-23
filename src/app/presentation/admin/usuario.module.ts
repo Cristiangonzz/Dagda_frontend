@@ -25,7 +25,7 @@ import { AdminUsuarioComponent } from './admin-usuarios/admin-usuario.component'
     HttpClientModule,
     SharedModule,
     RoutingUsuarioModule,
-    InfrastructureModule,
+    //InfrastructureModule,
   ],
   exports: [
     CreateUserComponent,

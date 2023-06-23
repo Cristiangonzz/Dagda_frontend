@@ -24,14 +24,9 @@ import {UpdateCourseComponent } from './update-course/update-course.component';
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    HttpClientModule,
     RoutingCourseModule,
-
-    InfrastructureModule,
     SharedModule,
     //modulo para el sommer Note
     AngularEditorModule,

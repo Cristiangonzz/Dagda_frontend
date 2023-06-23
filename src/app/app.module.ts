@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './presentation/shared/footer/footer.component';
@@ -20,8 +17,6 @@ import { CarritoModule } from "./presentation/carrito/carrito.module";
         BrowserModule,
         AppRoutingModule,
         InfrastructureModule,
-        provideFirebaseApp(() => initializeApp(environment.firebase)),
-        provideAuth(() => getAuth()),
         BrowserAnimationsModule,
         CarritoModule,
     ]
