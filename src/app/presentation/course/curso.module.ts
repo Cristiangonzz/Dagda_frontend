@@ -28,7 +28,6 @@ import {UpdateCourseComponent } from './update-course/update-course.component';
     NgxPaginationModule,
     RoutingCourseModule,
     SharedModule,
-    //modulo para el sommer Note
     AngularEditorModule,
   ],
   exports: [],
