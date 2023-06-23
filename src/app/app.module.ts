@@ -18,7 +18,7 @@ import { CarritoModule } from "./presentation/carrito/carrito.module";
         AppRoutingModule,
         InfrastructureModule,
         BrowserAnimationsModule,
-        CarritoModule,
+        CarritoModule,//voy a tener que sacar el carrito de aca
     ]
 })
 export class AppModule {}

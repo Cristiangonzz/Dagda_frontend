@@ -7,14 +7,11 @@ import { FormComponent } from './form/form.component';
 @NgModule({
   declarations: [
     FormComponent,
-    //CarritoComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-   
-   
   ],
   exports: [FormComponent],
 })

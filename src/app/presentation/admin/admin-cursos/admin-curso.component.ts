@@ -1,13 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Subscription, takeUntil } from 'rxjs';
-import Swal from 'sweetalert2';
 import { SweetAlert } from '../../shared/sweetAlert/sweet-alert.presentation';
-import { loginUseCaseProviders } from 'src/app/infrastructure/delegate/delegete-login/delegate-login.infrastructure';
 import { CursoDomainEntity } from 'src/app/domain/entities/curso.entity.domain';
 import { cursoUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-curso/delegate-course.infrastructure';
 import { CursoService } from 'src/app/domain/services/curso.service.domain';
-import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-curso',

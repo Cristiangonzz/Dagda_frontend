@@ -63,7 +63,7 @@ export class AdminUsuarioComponent implements OnInit , AfterViewInit{
       confirmButtonText: 'Si, Eliminar',
       cancelButtonText: 'Cancelar',
       confirmButtonColor: '#e64141',
-    }).then((result) => {
+    }).then((result: any) => {
       if (result.isConfirmed) {
         this.delegateUsuario.deleteUsuarioUseCaseProvider
           .useFactory(this.usuarioService)

@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { InfrastructureModule } from 'src/app/infrastructure/infrastructure.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CreateCursoComponent } from './create-curso/create-curso.component';
 import { RoutingCourseModule } from './routing-course.module';
@@ -25,7 +21,6 @@ import {UpdateCourseComponent } from './update-course/update-course.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
     RoutingCourseModule,
     SharedModule,
     AngularEditorModule,
