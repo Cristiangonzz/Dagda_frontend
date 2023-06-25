@@ -10,7 +10,7 @@ import { UpdateCategoriaDto } from '../../dto/create/update-categoria.dto';
   providedIn: 'root',
 })
 export class CategoriaImplementationService extends CategoriaService {
-  URL = 'https://backend.corpdagda.com';
+  URL = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {
     super();
@@ -37,7 +37,10 @@ export class CategoriaImplementationService extends CategoriaService {
       this.httpOptions
     );
   }
-  update(nombre: string, data: UpdateCategoriaDto): Observable<CategoriaDomainEntity> {
+  update(
+    nombre: string,
+    data: UpdateCategoriaDto
+  ): Observable<CategoriaDomainEntity> {
     return this.http.put<CategoriaDomainEntity>(
       `${this.URL}/categoria/update/${nombre}`,
       data,
@@ -57,6 +60,9 @@ export class CategoriaImplementationService extends CategoriaService {
     );
   }
   getAll(): Observable<CategoriaDomainEntity[]> {
-    return this.http.get<CategoriaDomainEntity[]>(`${this.URL}/categoria`, this.httpOptions);
+    return this.http.get<CategoriaDomainEntity[]>(
+      `${this.URL}/categoria`,
+      this.httpOptions
+    );
   }
 }
