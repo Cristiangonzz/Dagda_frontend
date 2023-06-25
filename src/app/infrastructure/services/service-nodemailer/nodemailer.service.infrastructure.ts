@@ -27,7 +27,7 @@ export class NodeMailerImplementationService extends NodeMailerService {
     }),
   };
 
-  override sendMail(data: SendEmailDto): Observable<MensajeCorreoDomainEntity> {
+  sendMail(data: SendEmailDto): Observable<MensajeCorreoDomainEntity> {
     return this.http.post<MensajeCorreoDomainEntity>(
       `${this.URL}/nodemailer`,
       data,
