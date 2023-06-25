@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { MembresiaUsuarioDomainEntity } from 'src/app/domain/entities/membresia-usuario.entity.domain';
 import { MembresiaUsuarioService } from 'src/app/domain/services/membresia-usuario.service.domain';
 import { CrearMembresiaUsuarioDto } from '../../dto/create/create-membresia-usuario.dto';
@@ -9,7 +9,7 @@ import { CrearMembresiaUsuarioDto } from '../../dto/create/create-membresia-usua
   providedIn: 'root',
 })
 export class MembresiaUsuarioImplementationService extends MembresiaUsuarioService {
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -22,7 +22,9 @@ export class MembresiaUsuarioImplementationService extends MembresiaUsuarioServi
       'Access-Control-Allow-Origin': '*',
     }),
   };
-  create(MembresiaUsuario: CrearMembresiaUsuarioDto): Observable<MembresiaUsuarioDomainEntity> {
+  create(
+    MembresiaUsuario: CrearMembresiaUsuarioDto
+  ): Observable<MembresiaUsuarioDomainEntity> {
     return this.http.post<MembresiaUsuarioDomainEntity>(
       `${this.URL}/membresia-usuario`,
       MembresiaUsuario,

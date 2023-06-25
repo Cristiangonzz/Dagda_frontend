@@ -10,8 +10,7 @@ import { UpdateUsuarioReferenciaDto } from '../../dto/create/update-usuario-refe
   providedIn: 'root',
 })
 export class UsuarioReferenciaImplementationService extends UsuarioReferenciaService {
- 
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -24,14 +23,19 @@ export class UsuarioReferenciaImplementationService extends UsuarioReferenciaSer
       'Access-Control-Allow-Origin': '*',
     }),
   };
-  create(referencia: RegistrarUsuarioReferenciaDto): Observable<UsuarioReferenciaDomainEntity> {
+  create(
+    referencia: RegistrarUsuarioReferenciaDto
+  ): Observable<UsuarioReferenciaDomainEntity> {
     return this.http.post<UsuarioReferenciaDomainEntity>(
       `${this.URL}/usuarioReferencia`,
       referencia,
       this.httpOptions
     );
   }
-  update(email: string, Usuario: UpdateUsuarioReferenciaDto): Observable<UsuarioReferenciaDomainEntity> {
+  update(
+    email: string,
+    Usuario: UpdateUsuarioReferenciaDto
+  ): Observable<UsuarioReferenciaDomainEntity> {
     return this.http.put<UsuarioReferenciaDomainEntity>(
       `${this.URL}/usuarioReferencia/update/${email}`,
       Usuario,

@@ -11,7 +11,7 @@ import { ImagenCursoDto } from '../../dto/create/guardar-imagen-curso.dto';
   providedIn: 'root',
 })
 export class CursoImplementationService extends CursoService {
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -19,7 +19,7 @@ export class CursoImplementationService extends CursoService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE',
       'Access-Control-Allow-Origin': '*',
@@ -72,7 +72,6 @@ export class CursoImplementationService extends CursoService {
     );
   }
   getimagen(filname: string): Observable<any> {
-    
     return this.http
       .get(`${this.URL}/curso/images/${filname}`, { responseType: 'blob' })
       .pipe(

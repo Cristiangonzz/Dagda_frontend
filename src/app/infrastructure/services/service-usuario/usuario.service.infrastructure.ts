@@ -11,8 +11,7 @@ import { SignInDto } from '../../dto/create/sign-in.dto';
   providedIn: 'root',
 })
 export class UsuarioImplementationService extends UsuarioService {
- 
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -32,7 +31,10 @@ export class UsuarioImplementationService extends UsuarioService {
       this.httpOptions
     );
   }
-  update(email: string, Usuario: UpdateUsuarioDto): Observable<UsuarioDomainEntity> {
+  update(
+    email: string,
+    Usuario: UpdateUsuarioDto
+  ): Observable<UsuarioDomainEntity> {
     return this.http.put<UsuarioDomainEntity>(
       `${this.URL}/usuario/update/${email}`,
       Usuario,
@@ -65,8 +67,8 @@ export class UsuarioImplementationService extends UsuarioService {
   }
 
   signIn(usuario: SignInDto): Observable<string> {
-    return this.http.post(
-      `${this.URL}/usuario/signin`,usuario,{responseType: 'text'}
-    );
+    return this.http.post(`${this.URL}/usuario/signin`, usuario, {
+      responseType: 'text',
+    });
   }
 }

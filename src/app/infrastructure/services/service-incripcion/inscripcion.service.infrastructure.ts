@@ -10,8 +10,7 @@ import { IUsuarioCursoInscripcionDomain } from 'src/app/domain/interfaces/find-u
   providedIn: 'root',
 })
 export class InscripcionImplementationService extends InscripcionService {
-  
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -51,13 +50,12 @@ export class InscripcionImplementationService extends InscripcionService {
     throw new Error('Method not implemented.');
   }
 
-  FindUsuarioCursoInscripcion(data: IUsuarioCursoInscripcionDomain): Observable<InscripcionDomainEntity[]> {
+  FindUsuarioCursoInscripcion(
+    data: IUsuarioCursoInscripcionDomain
+  ): Observable<InscripcionDomainEntity[]> {
     return this.http.get<InscripcionDomainEntity[]>(
       `${this.URL}/inscripcion/getUsuarioCurso/${data.email}/${data.titulo}`,
       this.httpOptions
     );
-
-    
-
   }
 }

@@ -13,12 +13,12 @@ import { SendEmailDto } from '../../dto/send-email.dto';
   providedIn: 'root',
 })
 export class NodeMailerImplementationService extends NodeMailerService {
-  URL = 'http://localhost:3000';
-  
+  URL = 'https://backend.corpdagda.com';
+
   constructor(private http: HttpClient) {
     super();
   }
-  
+
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Headers': 'Content-Type',
@@ -26,7 +26,7 @@ export class NodeMailerImplementationService extends NodeMailerService {
       'Access-Control-Allow-Origin': '*',
     }),
   };
-  
+
   override sendMail(data: SendEmailDto): Observable<MensajeCorreoDomainEntity> {
     return this.http.post<MensajeCorreoDomainEntity>(
       `${this.URL}/nodemailer`,
@@ -34,5 +34,4 @@ export class NodeMailerImplementationService extends NodeMailerService {
       this.httpOptions
     );
   }
-  
 }

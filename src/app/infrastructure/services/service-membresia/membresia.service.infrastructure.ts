@@ -14,7 +14,7 @@ import { UpdateMembresiaDto } from '../../dto/create/update-membresia.dto';
   providedIn: 'root',
 })
 export class MembresiaImplementationService extends MembresiaService {
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -34,7 +34,10 @@ export class MembresiaImplementationService extends MembresiaService {
       this.httpOptions
     );
   }
-  update(nombre: string, Membresia: UpdateMembresiaDto): Observable<MembresiaDomainEntity> {
+  update(
+    nombre: string,
+    Membresia: UpdateMembresiaDto
+  ): Observable<MembresiaDomainEntity> {
     return this.http.put<MembresiaDomainEntity>(
       `${this.URL}/membresia/update/${nombre}`,
       Membresia,
