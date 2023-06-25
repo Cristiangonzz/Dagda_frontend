@@ -29,9 +29,8 @@ export class NodeMailerImplementationService extends NodeMailerService {
 
   sendMail(data: SendEmailDto): Observable<MensajeCorreoDomainEntity> {
     return this.http.post<MensajeCorreoDomainEntity>(
-      `${this.URL}/nodemailer`,
+      "https://backend.corpdagda.com/nodemailer",
       data,
-      this.httpOptions
     );
   }
 }
