@@ -9,7 +9,7 @@ import { CrearMembresiaUsuarioDto } from '../../dto/create/create-membresia-usua
   providedIn: 'root',
 })
 export class MembresiaUsuarioImplementationService extends MembresiaUsuarioService {
-  URL = 'http://localhost:8080';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();

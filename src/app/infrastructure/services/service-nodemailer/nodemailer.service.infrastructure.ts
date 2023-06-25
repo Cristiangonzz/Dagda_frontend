@@ -13,7 +13,7 @@ import { SendEmailDto } from '../../dto/send-email.dto';
   providedIn: 'root',
 })
 export class NodeMailerImplementationService extends NodeMailerService {
-  URL = 'http://localhost:8080';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -29,7 +29,7 @@ export class NodeMailerImplementationService extends NodeMailerService {
 
   sendMail(data: SendEmailDto): Observable<MensajeCorreoDomainEntity> {
     return this.http.post<MensajeCorreoDomainEntity>(
-      'http://localhost:8080/nodemailer',
+      'https://backend.corpdagda.com/nodemailer',
       data
     );
   }

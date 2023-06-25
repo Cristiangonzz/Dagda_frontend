@@ -10,7 +10,7 @@ import { UpdateCategoriaDto } from '../../dto/create/update-categoria.dto';
   providedIn: 'root',
 })
 export class CategoriaImplementationService extends CategoriaService {
-  URL = 'http://localhost:8080';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();

@@ -10,7 +10,7 @@ import { UpdateUsuarioReferenciaDto } from '../../dto/create/update-usuario-refe
   providedIn: 'root',
 })
 export class UsuarioReferenciaImplementationService extends UsuarioReferenciaService {
-  URL = 'http://localhost:8080';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();

@@ -11,7 +11,7 @@ import { ImagenCursoDto } from '../../dto/create/guardar-imagen-curso.dto';
   providedIn: 'root',
 })
 export class CursoImplementationService extends CursoService {
-  URL = 'http://localhost:8080';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
