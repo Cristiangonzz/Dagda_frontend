@@ -83,7 +83,6 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
         next: (response: UsuarioDomainEntity) => {
           this.sweet.toFire(`${response.usuario}`, 'Cuenta Creada', 'success');
           if(this.usuarioReferente){
-            console.log("dentro del if",this.usuarioReferente);
             this.crearReferencia(response.email);
           }
           this.router.navigate([`home`]);
@@ -98,33 +97,36 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       });
   }
   signUp() {
-    this.user = this.formCrear.getRawValue() as UsuarioDomainEntity;
-    const data: SendEmailDto = {
-      nombreTo: `${this.user.primer_nombre} ${this.user.primer_apellido}`,
-      emailTo: this.user.email,
-
-      nombreFrom: 'Academia Dagda',
-      emailFrom: 'academiadagda@gmail.com',
-
-      subject: 'Inscripcion a Curso',
-      body: `<b>Felicitaciones se registro en Academia Dagda , le damos la bienvenida!!</b>`,
-    };
-    this.delegateNodeMailer.nodeMailerUseCaseProvider
-      .useFactory(this.nodeMailerService)
-      .execute(data)
-      .subscribe({
-        next: (value: MensajeCorreoDomainEntity) => {
-          this.registrarUsuario();
-        },
-        error: () => {
-          this.sweet.toFire(
-            'Correo Invalido',
-            'Ingrese un correo valido',
-            'error'
-          );
-        },
-      });
+    this.registrarUsuario();
   }
+  // signUp() {
+  //   this.user = this.formCrear.getRawValue() as UsuarioDomainEntity;
+  //   const data: SendEmailDto = {
+  //     nombreTo: `${this.user.primer_nombre} ${this.user.primer_apellido}`,
+  //     emailTo: this.user.email,
+
+  //     nombreFrom: 'Academia Dagda',
+  //     emailFrom: 'academiadagda@gmail.com',
+
+  //     subject: 'Inscripcion a Curso',
+  //     body: `<b>Felicitaciones se registro en Academia Dagda , le damos la bienvenida!!</b>`,
+  //   };
+  //   this.delegateNodeMailer.nodeMailerUseCaseProvider
+  //     .useFactory(this.nodeMailerService)
+  //     .execute(data)
+  //     .subscribe({
+  //       next: () => {
+  //         this.registrarUsuario();
+  //       },
+  //       error: () => {
+  //         this.sweet.toFire(
+  //           'Correo Invalido',
+  //           'Ingrese un correo valido',
+  //           'error'
+  //         );
+  //       },
+  //     });
+  // }
   guardarReferente() {
     this.delegateUsuario.getIdUsuarioUseCaseProvider
       .useFactory(this.usuarioService)
