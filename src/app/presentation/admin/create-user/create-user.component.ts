@@ -97,6 +97,8 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       });
   }
   signUp() {
+    this.user = this.formCrear.getRawValue() as UsuarioDomainEntity;
+
     this.registrarUsuario();
   }
   // signUp() {
