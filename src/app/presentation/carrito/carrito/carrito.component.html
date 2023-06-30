@@ -18,7 +18,8 @@
                           <button class = "cart-btn-individual" (click)="pagarUnidad(curso.precio,curso.titulo!)">Pagar US$ {{ curso.precio }}</button>
                         </div>
                         <div class="productCart-total" *ngIf="curso.detalle">
-                          <button class = "cart-btn-individual" (click)="pagarUnidad(curso.precio,curso.titulo!)">Pagar US$ {{ curso.precio }} {{curso.detalle}}</button>
+                          <button class = "cart-btn-individual" (click)="pagarUnidad(curso.precio,curso.titulo!)">Pagar US$ {{ curso.precio }}</button>
+                          <h5 class = "card-title" >{{ curso.detalle }}</h5>
                         </div>
                 </div>
               </div>
