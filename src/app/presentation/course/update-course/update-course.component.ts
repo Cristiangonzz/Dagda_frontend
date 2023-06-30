@@ -55,7 +55,7 @@ export class UpdateCourseComponent implements OnInit {
       .statusEmmit.subscribe({
         next: (value: CategoriaDomainEntity[]) => {
           this.categorias = value.map((x) => x.nombre);
-          console.log(this.categorias);
+          
         },
       });
   }
@@ -74,7 +74,7 @@ export class UpdateCourseComponent implements OnInit {
             detalle: data.detalle,
             precio: data.precio,
           });
-          console.log(this.curso);
+         
         },
         error: (error) => {
           this.sweetAlert.toFire(
@@ -130,7 +130,7 @@ export class UpdateCourseComponent implements OnInit {
         },
         error: (err) => {
           this.sweetAlert.toFire('Error', 'No se puedo actualizar curso', 'error');
-          console.log(err);
+          
           this.router.navigate(['/usuario/adminCurso']);
         },
       });

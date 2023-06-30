@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
       .useFactory(this.usuarioService)
       .statusRolEmmit.subscribe((status: number) => {
         this.rol = status;
-        console.log("este es el rol",this.rol);
+       
         if (status === 1) {
           this.isAdmin = true;
         } else {

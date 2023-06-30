@@ -40,7 +40,7 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
 
   openModal(i: number) {
     this.selected = this.membresias[i];
-    console.log(this.selected);
+   
     this.showModal = true;
   }
 
@@ -67,7 +67,7 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
         next: (value: number) => {
           this.rolPerteneceMembresia = value;
           this.getAllMembresia();//cargo todas las membresias
-          console.log(this.rolPerteneceMembresia);
+         
           if (value == 1) {
             this.rol = true;
           }
@@ -94,7 +94,7 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (value: MembresiaDomainEntity[]) => {
           this.membresias = value;
-          console.log("Dentro de la funcion :",this.rolPerteneceMembresia);
+         
           if(this.rolPerteneceMembresia == 2){
             this.membresias[0].vigente = true;//Socio Promotor
           }else{

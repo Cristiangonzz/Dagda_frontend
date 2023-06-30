@@ -36,7 +36,7 @@ export class GetAllCursoComponent implements OnInit, OnDestroy ,AfterViewInit  {
 
   openModal(i: number) {
     this.selected = this.courses[i];
-    console.log(this.selected);
+  
     this.showModal = true;
   }
 

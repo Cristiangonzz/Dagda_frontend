@@ -81,7 +81,7 @@ export class CarritoComponent implements OnInit,AfterViewInit {
       .execute(data)
       .subscribe({
         next: (value) => {
-          console.log(value);
+          
           
           window.location.href = value.body.init_point;
         },

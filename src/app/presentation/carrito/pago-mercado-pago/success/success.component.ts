@@ -21,7 +21,7 @@ export class SuccessComponent implements OnInit {
       .execute(localStorage.getItem('idInscripcion')!)
       .subscribe({
         next: (value: boolean) => {
-          console.log(value);
+          
           localStorage.removeItem('idInscripcion');
           this.router.navigate(['/carrito']);
         },

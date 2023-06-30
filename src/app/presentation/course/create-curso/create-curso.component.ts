@@ -78,7 +78,7 @@ export class CreateCursoComponent implements OnInit ,AfterViewInit{
       .subscribe({
         next: (value:any) => {
           this.curso.imagen = value.filename;
-          console.log("imagen",this.curso.imagen);
+         
          
         },
         error: (error) => {
@@ -122,7 +122,7 @@ export class CreateCursoComponent implements OnInit ,AfterViewInit{
     this.curso.descripcionPrograma = this.FormRegister.get('descripcionPrograma')?.value as string[];
     this.curso.categoria = this.FormRegister.get('categoria')?.value as string;
     this.curso.titulo = this.FormRegister.get('titulo')?.value as string;
-console.log(this.curso);
+
     this.delegateCurso.CreateCursoUseCaseProvider.useFactory(this.cursoService)
       .execute(this.curso)
       .subscribe({
@@ -132,7 +132,7 @@ console.log(this.curso);
         },
         error: (err) => {
           this.sweet.toFire('Error', 'Error al Crear Curso', 'error');
-          console.log(err);
+         
         },
       });
   }

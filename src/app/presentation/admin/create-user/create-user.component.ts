@@ -136,7 +136,6 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (response: UsuarioDomainEntity) => {
           this.usuarioReferente = response.email;
-          console.log(this.usuarioReferente);
 
         },
         error: (err: Error) => {
@@ -151,7 +150,6 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       usu_referente: this.usuarioReferente,
       usu_referido: newUsuario
     }
-      console.log(dataReferencia);
     this.delegateUsuarioReferencia
     .createUsuarioReferenciaUseCaseProvider
     .useFactory(this.usuarioReferenciaService)

@@ -36,12 +36,10 @@ export class GetInscripcionUsuarioCursoUseCase {
           }
         },
         error: (error: Error) => {
-          console.log(error);
         },
         complete: () => {
           this.emmitInscripcionDatos.next(this.inscripcionData);
           this.inscriptoEmmit.next(this.inscripto);
-          console.log('complete');
         }
 
       });

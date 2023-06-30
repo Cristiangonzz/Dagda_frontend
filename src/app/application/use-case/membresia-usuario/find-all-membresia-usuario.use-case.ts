@@ -19,7 +19,6 @@ export class GetAllMembresiaUsuarioUseCase {
       this.membresiaUsuarioservice.getAll().subscribe({
         next: (value: MembresiaUsuarioDomainEntity[]) => {
           this.status = value;
-          console.log('aca retorno todas las membresia Usuarios', this.status);
         },
         complete: () => {
           this.statusEmmit.next(this.status);

@@ -31,7 +31,6 @@ export class HasRolUseCase {
         .useFactory(this.usuarioServicio)
           .execute(tokenUser?.usuario?.email!)
             .subscribe((usuario: UsuarioDomainEntity) => {
-                console.log("El rol que tiene el usuario Actual",usuario);
                 if (usuario.tipo_usuario == 1) {
                   this.status = 1;
                   this.statusRolEmmit.next(this.status);

@@ -56,7 +56,6 @@ export class CreateCategoriaComponent implements  AfterViewInit{
         },
         error: (err) => {
           this.sweet.toFire('Incompleto', 'Error al Crear Categoria', 'error');
-          console.log(err);
         },
       });
       this.confirmarCreacion.emit();

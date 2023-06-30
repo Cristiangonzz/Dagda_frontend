@@ -38,19 +38,16 @@ export class PertenecerMembresiaUsuarioUseCase {
       this.membresiaAdquiridaEmmit.observed &&
       !this.membresiaAdquiridaEmmit.closed
     ) {
-      console.log("usuario actual");
       return this.delegateLogin.hasTokenUserUseCaseUseProvider
         .useFactory()
         .execute()
         .pipe(
           switchMap((value: IUsuarioTokenDomain) => {
             this.usuarioActual = value.usuario?.email!;
-            console.log("usuario actual");
 
             return this.membresiaService.getAll().pipe(
               switchMap((value: MembresiaDomainEntity[]) => {
                 this.membresiaUsuario = value;
-                console.log("Aca retorno todas las membresia",this.membresiaUsuario);
                 
   
                 return this.membresiaUsuarioService.getAll().pipe(

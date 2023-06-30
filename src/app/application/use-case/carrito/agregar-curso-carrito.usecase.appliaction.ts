@@ -33,17 +33,15 @@ export class AgregarCursoCarritoUseCase {
               .filter((inscripcion: InscripcionDomainEntity) => inscripcion.usuario?.email === this.emailUsuario)
               .map((inscripcion: InscripcionDomainEntity) => inscripcion.curso!);
             
-            console.log('Cursos del usuario:', cursosUsuario);
+           
             this.cursoCarrito = cursosUsuario;
             this.cursosCarritoEmmit.next(this.cursoCarrito);
           })
         ).subscribe(
           {
             next: (data: InscripcionDomainEntity[]) => {
-              console.log("salio todo bien");
             },
             error: (error: any) => {
-              console.log(error);
             }
           }
         );

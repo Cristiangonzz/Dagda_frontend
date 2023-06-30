@@ -95,7 +95,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
   }
 
   updateRolUsaurio(pos: number, email: string) {
-    console.log("posicion" + pos + "correo " + email);
+   
     if (pos == 0) {
       this.updateUsuario.tipo_usuario = 2;
     }
