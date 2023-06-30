@@ -25,7 +25,7 @@ import { IUsuarioCursoInscripcionDomain } from 'src/app/domain/interfaces/find-u
   styleUrls: ['./get-curso.component.css'],
 })
 export class GetCursoComponent implements OnInit, AfterViewInit {
-  curso!: CursoDomainEntity;
+  curso: CursoDomainEntity = {} as CursoDomainEntity;
   delegateCurso = cursoUseCaseProviders;
   delegateInscricion = inscripcionUseCaseProviders;
   delegateLogin = loginUseCaseProviders;
