@@ -43,8 +43,17 @@ export class TablaCategoriaComponent implements OnInit {
     this.delegateCategoria.deleteCategoriaUseCaseProvider
       .useFactory(this.categoriaService)
       .execute(nombre).subscribe({
-        next: () => {
-          this.sweet.toFire('Completo', 'Categoria Eliminada', 'success');
+        next: (value : boolean) => {
+          if(value){
+            this.sweet.toFire('Completo', 'Categoria Eliminada', 'success');
+            this.delegateCategoria.getAllCategoriaUseCaseProvider
+            .useFactory(this.categoriaService)
+            .execute();
+          }else{
+            this.sweet.toFire('Error', 'vuelva a intentar', 'error');
+
+          }
+         
         },
         error: () => {
           this.sweet.toFire('Error', 'vuelva a intentar', 'error');
