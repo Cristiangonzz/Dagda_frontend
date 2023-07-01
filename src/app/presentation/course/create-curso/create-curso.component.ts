@@ -51,6 +51,8 @@ export class CreateCursoComponent implements OnInit ,AfterViewInit{
   }
 
   ngOnInit(): void {
+    
+
     this.addContenidoPrograma();
     this.delegateCategoria.getAllCategoriaUseCaseProvider
       .useFactory(this.categoriaService)
@@ -63,7 +65,7 @@ export class CreateCursoComponent implements OnInit ,AfterViewInit{
         },
       });
   }
-  
+
   imageData!:FormData;
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -109,9 +111,11 @@ export class CreateCursoComponent implements OnInit ,AfterViewInit{
   get tituloProgramaForms() {
     return this.FormRegister.get('tituloPrograma') as FormArray;
   }
+  
   get descripcionProgramaForms() {
     return this.FormRegister.get('descripcionPrograma') as FormArray;
   }
+
   send() {
   
     this.curso.descripcion = this.FormRegister.get('descripcion')
