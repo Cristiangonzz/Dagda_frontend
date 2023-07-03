@@ -6,6 +6,7 @@ import { CreateMembresiaComponent } from './crear-membresia/create-membresia.com
 import { GetAllMembresiaComponent } from './get-all-membresia/get-all-membresia.component';
 import { UpdateMembresiaComponent } from './update-membresia/update-membresia.component';
 import { RoutingMembresiaModule } from './routing-membresia.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 
@@ -20,6 +21,7 @@ import { RoutingMembresiaModule } from './routing-membresia.module';
     ReactiveFormsModule,
     RoutingMembresiaModule,
     SharedModule, 
+    AngularEditorModule,
   
   ],
   exports: [],

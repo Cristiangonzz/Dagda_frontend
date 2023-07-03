@@ -20,7 +20,7 @@ import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
   styleUrls: ['./get-all-membresia.component.css'],
 })
 export class GetAllMembresiaComponent implements OnInit, OnDestroy {
-  membresias!: MembresiaDomainEntity[];
+  membresias: MembresiaDomainEntity[] = [];
   delegateMembresia = membresiaUseCaseProviders;
   delegateMembresiaUsuario = membresiaUsuarioUseCaseProviders;
   delegateLogin = loginUseCaseProviders;
@@ -33,20 +33,9 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
   membresiaUsuario: IMembresiaUsuarioDomain[] = [];
   pertenecenUsuarioMembresia: IPerteneceMembresiaUsuarioDomain[] = [];
  rolPerteneceMembresia : number = 0;
-  selected!: MembresiaDomainEntity;
+ 
 
-  showModal = false;
-  suscription!: Subscription;
 
-  openModal(i: number) {
-    this.selected = this.membresias[i];
-   
-    this.showModal = true;
-  }
-
-  closeModal() {
-    this.showModal = false;
-  }
 
   constructor(
     private membresiaService: MembresiaService,
@@ -56,6 +45,7 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.getMembresiaUsuario();
     this.getUsuario();
      
     
@@ -94,27 +84,10 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (value: MembresiaDomainEntity[]) => {
           this.membresias = value;
-         
-          if(this.rolPerteneceMembresia == 2){
-            this.membresias[0].vigente = true;//Socio Promotor
-          }else{
-            this.membresias[0].vigente = false;
-          }
-          if(this.rolPerteneceMembresia == 3){
-            this.membresias[1].vigente = true;//Socio Basico
-          }else{
-            this.membresias[1].vigente = false;
-          }
-          if(this.rolPerteneceMembresia == 4){
-            this.membresias[2].vigente = true;//Educador
-          }else{
-            this.membresias[2].vigente = false;
-          }
-          if(this.rolPerteneceMembresia == 5){
-            this.membresias[3].vigente = true;//Socio Educador
-          }else{
-            this.membresias[3].vigente = false;
-          }
+          value.forEach((membresia) => {
+            if(this.membresiaUsuario[0].membresia.nombre == membresia.nombre){
+              membresia.vigente = true;
+            }});
         },
         error: () => {
           this.sweet.toFire('Membresia', 'Error al Obtener Membresias', 'error');
@@ -179,20 +152,35 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
       });
   }
   asignarMembresiaUsuario(nombre: string) {
-    let posicionMembresia= 0;
-    this.membresias.
-    forEach((element,index) => {
-      if(element.nombre == nombre){
-        posicionMembresia = index;
-      }
-    });
-
-
-    this.router.navigate([`membresia-usuario/create/${nombre}/${posicionMembresia}/${this.usuarioActual}`]);
+    this.router.navigate([`membresia-usuario/create/${nombre}/${this.usuarioActual}`]);
   }
   refresh() {
     this.delegateMembresia.getAllMembresiaUseCaseProvider
       .useFactory(this.membresiaService)
       .execute();
+      this.delegateMembresiaUsuario.getAllMembresiaUsuarioUseCaseProvider
+      .useFactory(this.membresiaUsuarioService)
+      .execute();
+  }
+  getMembresiaUsuario() {
+    this.delegateMembresiaUsuario.getAllMembresiaUsuarioUseCaseProvider
+      .useFactory(this.membresiaUsuarioService)
+      .execute();
+
+    this.delegateMembresiaUsuario.getAllMembresiaUsuarioUseCaseProvider
+      .useFactory(this.membresiaUsuarioService)
+      .statusEmmit.pipe(takeUntil(this.onDestroy$))
+      .subscribe({
+        next: (value: IMembresiaUsuarioDomain[]) => {
+          this.membresiaUsuario = value;
+        },
+        error: () => {
+          this.sweet.toFire(
+            'Membresia Usuario',
+            'Error al Obtener Membresias Usuario',
+            'error'
+          );
+        },
+      });
   }
 }

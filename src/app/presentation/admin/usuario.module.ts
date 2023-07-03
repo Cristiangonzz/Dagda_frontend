@@ -7,12 +7,14 @@ import { RoutingUsuarioModule } from './routing-usuario.module';
 import { InscribirUsuarioCursoComponent } from './inscribir-usuario-curso/inscribir-usuario-curso.component';
 import { AdminCursoComponent } from './admin-cursos/admin-curso.component';
 import { AdminUsuarioComponent } from './admin-usuarios/admin-usuario.component';
+import { AdminMembresiaComponent } from './admin-membresia/admin-membresia.component';
 @NgModule({
   declarations: [
     CreateUserComponent,
     InscribirUsuarioCursoComponent,
     AdminCursoComponent,
     AdminUsuarioComponent,
+    AdminMembresiaComponent,
   ],
   imports: [
     CommonModule,

@@ -31,7 +31,6 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
     usuario: '',
     membresia: '',
   };
-  posMembresia!: number;
 
   constructor(
     private readonly membresiaUsuarioService: MembresiaUsuarioService,
@@ -44,7 +43,6 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
   ngOnInit(): void {
     if (
       this.activatedRoute.snapshot.params['nombreMembresia'] == null ||
-      this.activatedRoute.snapshot.params['posicionMembresia'] == null ||
       this.activatedRoute.snapshot.params['usuarioActual'] == null
     ) {
       this.router.navigate(['/membresia/get-all']);
@@ -53,10 +51,8 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
         this.activatedRoute.snapshot.params['nombreMembresia'];
       this.membresiaUsuario.usuario =
         this.activatedRoute.snapshot.params['usuarioActual'];
-      this.posMembresia =
-        this.activatedRoute.snapshot.params['posicionMembresia'];
       this.asignarMembresiaUsuario();
-      this.updateRolUsaurio(this.posMembresia, this.membresiaUsuario.usuario);
+      this.router.navigate(['/membresia/get-all']);
     }
   }
 
@@ -71,8 +67,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
             'Membresia asignada correctamente ',
             'success'
           );
-
-          //this.router.navigate([`/membresia/get/${this.membresiaUsuario.membresia}`]);
+          this.updateRolUsaurio(this.membresiaUsuario.membresia, this.membresiaUsuario.usuario);
           this.router.navigate([`/membresia/get-all`]);
         },
         error: () => {
@@ -94,19 +89,22 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
       });
   }
 
-  updateRolUsaurio(pos: number, email: string) {
+  updateRolUsaurio(nombreMembresia: string ,email: string) {
    
-    if (pos == 0) {
+    if (nombreMembresia == "SOCIO EDUCADOR") {
       this.updateUsuario.tipo_usuario = 2;
     }
-    if (pos == 1) {
+    if (nombreMembresia == "SOCIO PROMOTOR") {
       this.updateUsuario.tipo_usuario = 3;
     }
-    if (pos == 2) {
+    if (nombreMembresia == "EMPRENDEDOR") {
       this.updateUsuario.tipo_usuario = 4;
     }
-    if (pos == 3) {
+    if (nombreMembresia == "SOCIO BASICO") {
       this.updateUsuario.tipo_usuario = 5;
+    }
+    if (nombreMembresia == "EDUCADOR") {
+      this.updateUsuario.tipo_usuario = 6;
     }
     this.delegateUsuario.updateUsuarioUseCaseProvider
       .useFactory(this.usuarioService)

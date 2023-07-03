@@ -10,7 +10,7 @@ import { IUsuarioCursoInscripcionDomain } from 'src/app/domain/interfaces/find-u
   providedIn: 'root',
 })
 export class InscripcionImplementationService extends InscripcionService {
-  URL = 'https://backend.corpdagda.com';
+  URL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {
     super();

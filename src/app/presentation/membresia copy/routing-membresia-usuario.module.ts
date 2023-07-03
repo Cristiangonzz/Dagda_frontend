@@ -9,9 +9,9 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: `create/:nombreMembresia/:posicionMembresia/:usuarioActual`,
+        path: `create/:nombreMembresia/:usuarioActual`,
         component: CreateMembresiaUsuarioComponent,
-        canActivate: [PermissionLogeadoGuard, PermissionRolAdminGuard],
+       // canActivate: [PermissionLogeadoGuard, PermissionRolAdminGuard],
       },
 
       {

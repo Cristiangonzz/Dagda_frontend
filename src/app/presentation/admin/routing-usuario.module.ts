@@ -6,6 +6,7 @@ import { AdminCursoComponent } from './admin-cursos/admin-curso.component';
 import { AdminUsuarioComponent } from './admin-usuarios/admin-usuario.component';
 import { PermissionLogeadoGuard } from '../shared/guards/permission-logeado.guard';
 import { PermissionRolAdminGuard } from '../shared/guards/permission-rol-admin.guard';
+import { AdminMembresiaComponent } from './admin-membresia/admin-membresia.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
       {
         path: `adminUsuario`,
         component: AdminUsuarioComponent,
+        canActivate: [PermissionLogeadoGuard, PermissionRolAdminGuard],
+      },
+      {
+        path: `adminMembresia`,
+        component: AdminMembresiaComponent,
         canActivate: [PermissionLogeadoGuard, PermissionRolAdminGuard],
       },
 
