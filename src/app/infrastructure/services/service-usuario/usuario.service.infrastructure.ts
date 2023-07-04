@@ -11,7 +11,7 @@ import { SignInDto } from '../../dto/create/sign-in.dto';
   providedIn: 'root',
 })
 export class UsuarioImplementationService extends UsuarioService {
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();

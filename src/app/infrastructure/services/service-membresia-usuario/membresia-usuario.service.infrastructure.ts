@@ -11,8 +11,7 @@ import { GetMembresiaUsuarioIncripcionDTO } from '../../dto/get/get-usuario-memb
   providedIn: 'root',
 })
 export class MembresiaUsuarioImplementationService extends MembresiaUsuarioService {
-  
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
@@ -60,9 +59,10 @@ export class MembresiaUsuarioImplementationService extends MembresiaUsuarioServi
     );
   }
 
-  FindUsuarioMembresiaInscripcion(data: GetMembresiaUsuarioIncripcionDTO): Observable<MembresiaUsuarioDomainEntity[]> {
-    return this
-    .http.get<IMembresiaUsuarioDomain[]>(
+  FindUsuarioMembresiaInscripcion(
+    data: GetMembresiaUsuarioIncripcionDTO
+  ): Observable<MembresiaUsuarioDomainEntity[]> {
+    return this.http.get<IMembresiaUsuarioDomain[]>(
       `${this.URL}/membresia-usuario/getMembresiaUsuario/${data.email}/${data.nombre}`,
       this.httpOptions
     );

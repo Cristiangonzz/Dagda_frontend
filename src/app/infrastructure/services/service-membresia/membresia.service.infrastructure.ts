@@ -14,7 +14,7 @@ import { UpdateMembresiaDto } from '../../dto/create/update-membresia.dto';
   providedIn: 'root',
 })
 export class MembresiaImplementationService extends MembresiaService {
-  URL = 'http://localhost:3000';
+  URL = 'https://backend.corpdagda.com';
 
   constructor(private http: HttpClient) {
     super();
