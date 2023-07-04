@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriaDomainEntity } from 'src/app/domain/entities/categoria.entity.domain';
 import { CategoriaService } from 'src/app/domain/services/categoria.service.domain';
@@ -10,7 +10,7 @@ import { SweetAlert } from '../../shared/sweetAlert/sweet-alert.presentation';
   templateUrl: './tabla-categoria.component.html',
   styleUrls: ['./tabla-categoria.component.css'],
 })
-export class TablaCategoriaComponent implements OnInit {
+export class TablaCategoriaComponent implements OnInit ,AfterViewInit{
   delegateCategoria = categoriaUseCaseProviders;
   categorias!: CategoriaDomainEntity[];
   mostrarComponente: boolean = false;
@@ -20,7 +20,9 @@ export class TablaCategoriaComponent implements OnInit {
     private categoriaService: CategoriaService,
     private router: Router,
   ) {}
-  
+  ngAfterViewInit(): void {
+    window.scroll(0,0)
+  }
   finalizarCreacion(){
     this.mostrarComponente = false;
   }

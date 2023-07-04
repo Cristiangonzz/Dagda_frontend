@@ -60,8 +60,9 @@ export class MembresiaUsuarioImplementationService extends MembresiaUsuarioServi
     );
   }
 
-  FindUsuarioMembresiaInscripcion(data: GetMembresiaUsuarioIncripcionDTO): Observable<IMembresiaUsuarioDomain[]> {
-    return this.http.get<IMembresiaUsuarioDomain[]>(
+  FindUsuarioMembresiaInscripcion(data: GetMembresiaUsuarioIncripcionDTO): Observable<MembresiaUsuarioDomainEntity[]> {
+    return this
+    .http.get<IMembresiaUsuarioDomain[]>(
       `${this.URL}/membresia-usuario/getMembresiaUsuario/${data.email}/${data.nombre}`,
       this.httpOptions
     );

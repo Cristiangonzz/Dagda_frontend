@@ -51,6 +51,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
         this.activatedRoute.snapshot.params['nombreMembresia'];
       this.membresiaUsuario.email =
         this.activatedRoute.snapshot.params['usuarioActual'];
+        console.log("datos para crear la membresia usuario: ",this.membresiaUsuario);
       this.asignarMembresiaUsuario();
       this.router.navigate(['/membresia/get-all']);
     }
@@ -70,10 +71,10 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
           this.updateRolUsaurio(this.membresiaUsuario.nombre, this.membresiaUsuario.email);
           this.router.navigate([`/membresia/get-all`]);
         },
-        error: (err) => {
+        error: () => {
           this.sweet.toFire(
             'membresia',
-            'Error en la Membresia Usuario ' + err,
+            'Error en la Membresia Usuario',
             'error'
           );
         },

@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center" >
-  <div class="row" style="margin-top:  70px;">
+  <div class="row" style="margin-top:  100px;">
     <div class="col">
       <h2 class="form-title">Crear Nuevo Curso</h2>
 
@@ -14,10 +14,10 @@
         </div>
         
 
-<div class="form-group">
-  <label class="form-label">Descripcion</label>
-  <angular-editor   formControlName="descripcion" ></angular-editor>
-      </div>
+  <div class="form-group">
+    <label class="form-label">Descripcion</label>
+    <angular-editor   formControlName="descripcion" ></angular-editor>
+  </div>
         <div class="form-group">
           <label class="form-label">Categoria</label>
               <select formControlName="categoria" class="form-control">
@@ -31,18 +31,15 @@
        
 
         <div class="form-group">
-          <app-form
-            [control]="FormRegister.controls.detalle"
-            type="text"
-            label="detalle"
-            placeHolder=""
-          ></app-form>
+          <label class="form-label">Detalle</label>
+          <angular-editor   formControlName="detalle" ></angular-editor>
         </div>
+
         <div class="form-group">
           <app-form
             [control]="FormRegister.controls.precio"
             type="number"
-            label="precio"
+            label="Precio *"
             placeHolder=""
           ></app-form>
         </div>
@@ -67,10 +64,7 @@
           label="Descripcion {{ i + 1}}"
           placeHolder="Descripcion {{ i +1}}"
         ></app-form>
-         
-      
-         
-          
+
               <button
               type="button"
               (click)="removeContenidoPrograma(i)"
