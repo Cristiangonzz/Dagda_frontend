@@ -46,6 +46,50 @@
               placeHolder=""
             ></app-form>
           </div>
+
+          <span>Programa del Curso</span>
+          <div >
+            <div formArrayName="content">
+              <div
+                *ngFor="let content of tituloProgramaForms.controls; let i = index"
+                class="form-control"
+              >
+              <app-form
+              [control]="FormUpdate.controls.tituloPrograma.controls[i]"
+              type="text"
+              label="Titulo {{ i +1 }}"
+              placeHolder="Titulo {{ i+ 1}}"
+            ></app-form>
+            <app-form
+            [control]="FormUpdate.controls.descripcionPrograma.controls[i]"
+            type="text"
+            label="Descripcion {{ i + 1}}"
+            placeHolder="Descripcion {{ i +1}}"
+          ></app-form>
+           
+        
+           
+            
+                <button
+                type="button"
+                (click)="removeContenidoPrograma(i)"
+                class="btn btn-outline-danger"
+              >
+                Eliminar
+              </button>
+                
+              </div>
+              
+              <button
+                type="button"
+                (click)="addContenidoPrograma()"
+                class="btn btn-outline-primary"
+              >
+                añadir
+              </button>
+            </div>
+          </div>
+  
   
         
   

@@ -16,7 +16,7 @@
            
             </div>
             <div *ngIf="!membresia.vigente" class="subscription-button-wrapper">
-              <button class="subbt" (click)="asignarMembresiaUsuario(membresia.nombre)">
+              <button class="subbt" (click)="asignarMembresiaUsuario(membresia.nombre ,membresia.costo)">
                 Adquirir</button>
             </div>
             <div *ngIf="membresia.vigente" class="subscription-button-wrapper">

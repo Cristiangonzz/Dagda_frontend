@@ -13,6 +13,8 @@ import { IUsuarioTokenDomain } from 'src/app/domain/interfaces/usuario.token.int
 import { IPerteneceMembresiaUsuarioDomain } from 'src/app/domain/interfaces/pertenece-membresia-usuario.inteface.domain';
 import { IMembresiaUsuarioDomain } from 'src/app/domain/interfaces/membresia-usuario.inteface.domain';
 import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
+import { GetMembresiaUsuarioIncripcionDTO } from 'src/app/infrastructure/dto/get/get-usuario-membresia-email-nombre.dto';
+import { MembresiaUsuarioDomainEntity } from 'src/app/domain/entities/membresia-usuario.entity.domain';
 
 @Component({
   selector: 'app-get-all-membresia',
@@ -45,11 +47,8 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getMembresiaUsuario();
     this.getUsuario();
-     
-    
-    
+
     this.delegateLogin.hasRolUseCaseProvider.useFactory(this.usuarioService).execute();
     this.delegateLogin.hasRolUseCaseProvider
       .useFactory(this.usuarioService)
@@ -85,9 +84,24 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
         next: (value: MembresiaDomainEntity[]) => {
           this.membresias = value;
           value.forEach((membresia) => {
-            if(this.membresiaUsuario[0].membresia.nombre == membresia.nombre){
-              membresia.vigente = true;
-            }});
+            let usuarioMembresia : GetMembresiaUsuarioIncripcionDTO = {
+              email: this.usuarioActual,
+              nombre: membresia.nombre
+            }
+            this.delegateMembresiaUsuario
+              .getMembresiaUsuarioIncripcionUseCaseProvider
+                .useFactory(this.membresiaUsuarioService)
+                  .execute(usuarioMembresia)
+                      .subscribe({
+                        next: (value: MembresiaUsuarioDomainEntity[]) => {
+                          if(value.length > 0){
+                            membresia.vigente = true;
+                          }else{
+                            membresia.vigente = false;
+                          }
+                        },
+                      });
+            });
         },
         error: () => {
           this.sweet.toFire('Membresia', 'Error al Obtener Membresias', 'error');
@@ -151,8 +165,13 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
         },
       });
   }
-  asignarMembresiaUsuario(nombre: string) {
-    this.router.navigate([`membresia-usuario/create/${nombre}/${this.usuarioActual}`]);
+  asignarMembresiaUsuario(nombre: string,precio: number) {
+    //Funcionalidad pronta para cuando se haga el cambio a mercado pago y se pueda pagar la membresia
+    if(precio == 0){
+      this.router.navigate([`membresia-usuario/create/${nombre}/${this.usuarioActual}`]);
+    }else{
+      this.router.navigate([`membresia/get/${nombre}`]);
+    }
   }
   refresh() {
     this.delegateMembresia.getAllMembresiaUseCaseProvider
@@ -162,25 +181,5 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
       .useFactory(this.membresiaUsuarioService)
       .execute();
   }
-  getMembresiaUsuario() {
-    this.delegateMembresiaUsuario.getAllMembresiaUsuarioUseCaseProvider
-      .useFactory(this.membresiaUsuarioService)
-      .execute();
-
-    this.delegateMembresiaUsuario.getAllMembresiaUsuarioUseCaseProvider
-      .useFactory(this.membresiaUsuarioService)
-      .statusEmmit.pipe(takeUntil(this.onDestroy$))
-      .subscribe({
-        next: (value: IMembresiaUsuarioDomain[]) => {
-          this.membresiaUsuario = value;
-        },
-        error: () => {
-          this.sweet.toFire(
-            'Membresia Usuario',
-            'Error al Obtener Membresias Usuario',
-            'error'
-          );
-        },
-      });
-  }
+  
 }

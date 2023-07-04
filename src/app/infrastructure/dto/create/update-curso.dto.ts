@@ -12,4 +12,8 @@ export interface UpdateCursoDto {
   detalle?: string;
 
   precio?: number;
+
+  tituloPrograma?: string[];
+  
+  descripcionPrograma?: string[];
 }

@@ -6,8 +6,6 @@ import Swal from 'sweetalert2';
 import { MembresiaDomainEntity } from 'src/app/domain/entities/membresia.entity.domain';
 import { membresiaUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-membresia/delegate-membresia.infrastructure';
 import { MembresiaService } from 'src/app/domain/services/membresia.service.domain';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CrearMembresiaUsuarioDto } from 'src/app/infrastructure/dto/create/create-membresia-usuario.dto';
 
 @Component({
   selector: 'app-admin-membresia',
@@ -17,20 +15,8 @@ import { CrearMembresiaUsuarioDto } from 'src/app/infrastructure/dto/create/crea
 export class AdminMembresiaComponent implements OnInit, OnDestroy, AfterViewInit {
   membresias!: MembresiaDomainEntity[];
   delegateMembresia = membresiaUseCaseProviders;
-  viewFormulario: boolean = false;
-  usuarioMembresia!: CrearMembresiaUsuarioDto;
   sweet = new SweetAlert();
   private onDestroy$: Subject<void> = new Subject<void>();
-
-  FormRegister = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.email]),
-    nombre: new FormControl('', [Validators.required, Validators.minLength(2)]),
-   
-    
-  });
  
   suscription!: Subscription;
   constructor(
@@ -130,15 +116,6 @@ editarMembresia(titulo : string){
   this.router.navigate([`curso/update/${titulo}`]);
 }
 
-mostrarFormulario(){
-  this.viewFormulario = !this.viewFormulario;
-}
-send(){
-  this.usuarioMembresia.email = this.FormRegister.get('email')?.value as string;
-  this.usuarioMembresia.nombre = this.FormRegister.get('nombre')?.value as string;
-  this.router.navigate([`membresia-usuario/create/${this.usuarioMembresia.nombre}/${this.usuarioMembresia.email}`]);
-
-}
 
 
 

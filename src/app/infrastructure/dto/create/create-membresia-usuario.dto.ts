@@ -1,5 +1,5 @@
 export interface CrearMembresiaUsuarioDto {
-  usuario: string;
+  email: string;
 
-  membresia: string;
+  nombre: string;
 }

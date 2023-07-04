@@ -28,8 +28,8 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
   sweet = new SweetAlert();
   updateUsuario: UpdateUsuarioDto = {} as UpdateUsuarioDto;
   membresiaUsuario: CrearMembresiaUsuarioDto = {
-    usuario: '',
-    membresia: '',
+    email: '',
+    nombre: '',
   };
 
   constructor(
@@ -47,9 +47,9 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
     ) {
       this.router.navigate(['/membresia/get-all']);
     } else {
-      this.membresiaUsuario.membresia =
+      this.membresiaUsuario.nombre =
         this.activatedRoute.snapshot.params['nombreMembresia'];
-      this.membresiaUsuario.usuario =
+      this.membresiaUsuario.email =
         this.activatedRoute.snapshot.params['usuarioActual'];
       this.asignarMembresiaUsuario();
       this.router.navigate(['/membresia/get-all']);
@@ -67,13 +67,13 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
             'Membresia asignada correctamente ',
             'success'
           );
-          this.updateRolUsaurio(this.membresiaUsuario.membresia, this.membresiaUsuario.usuario);
+          this.updateRolUsaurio(this.membresiaUsuario.nombre, this.membresiaUsuario.email);
           this.router.navigate([`/membresia/get-all`]);
         },
-        error: () => {
+        error: (err) => {
           this.sweet.toFire(
             'membresia',
-            'Error en la membresiaUsuario',
+            'Error en la Membresia Usuario ' + err,
             'error'
           );
         },

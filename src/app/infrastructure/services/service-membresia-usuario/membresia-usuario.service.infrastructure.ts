@@ -4,11 +4,14 @@ import { Observable } from 'rxjs';
 import { MembresiaUsuarioDomainEntity } from 'src/app/domain/entities/membresia-usuario.entity.domain';
 import { MembresiaUsuarioService } from 'src/app/domain/services/membresia-usuario.service.domain';
 import { CrearMembresiaUsuarioDto } from '../../dto/create/create-membresia-usuario.dto';
+import { IMembresiaUsuarioDomain } from 'src/app/domain/interfaces/membresia-usuario.inteface.domain';
+import { GetMembresiaUsuarioIncripcionDTO } from '../../dto/get/get-usuario-membresia-email-nombre.dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MembresiaUsuarioImplementationService extends MembresiaUsuarioService {
+  
   URL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {
@@ -53,6 +56,13 @@ export class MembresiaUsuarioImplementationService extends MembresiaUsuarioServi
   getByName(nombre: string): Observable<MembresiaUsuarioDomainEntity> {
     return this.http.get<MembresiaUsuarioDomainEntity>(
       `${this.URL}/membresia-usuario/getNombre/${nombre}`,
+      this.httpOptions
+    );
+  }
+
+  FindUsuarioMembresiaInscripcion(data: GetMembresiaUsuarioIncripcionDTO): Observable<IMembresiaUsuarioDomain[]> {
+    return this.http.get<IMembresiaUsuarioDomain[]>(
+      `${this.URL}/membresia-usuario/getMembresiaUsuario/${data.email}/${data.nombre}`,
       this.httpOptions
     );
   }

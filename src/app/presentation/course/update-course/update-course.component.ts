@@ -22,6 +22,8 @@ export class UpdateCourseComponent implements OnInit {
   cursoUpdate: UpdateCursoDto = {} as UpdateCursoDto;
   curso: CursoDomainEntity = {} as CursoDomainEntity;
   categorias!: string[];
+  tituloPro: string[] = [];
+  descripcionPro: string[] = [];
   public sweetAlert = new SweetAlert();
 
   FormUpdate = new FormGroup({
@@ -30,6 +32,8 @@ export class UpdateCourseComponent implements OnInit {
       categoria: new FormControl(''),
       detalle: new FormControl(''),
       precio: new FormControl<number>(0, [Validators.required]),
+      tituloPrograma: new FormArray([], [Validators.required]),
+      descripcionPrograma: new FormArray([], [Validators.required]),
     });
 
   constructor(
@@ -45,6 +49,33 @@ export class UpdateCourseComponent implements OnInit {
     this.buscarCurso();
     this.recargarCategorias();
     
+  }
+  addContenidoPrograma() {
+    const titulo = new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]);
+    const descripcion = new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]);
+    this.tituloProgramaForms.push(titulo);
+    this.descripcionProgramaForms.push(descripcion);
+  }
+
+
+
+  removeContenidoPrograma(i: number) {
+    this.tituloProgramaForms.removeAt(i);
+    this.descripcionProgramaForms.removeAt(i);
+  }
+
+  get tituloProgramaForms() {
+    return this.FormUpdate.get('tituloPrograma') as FormArray;
+  }
+  
+  get descripcionProgramaForms() {
+    return this.FormUpdate.get('descripcionPrograma') as FormArray;
   }
 
   recargarCategorias(){
@@ -67,7 +98,18 @@ export class UpdateCourseComponent implements OnInit {
       .subscribe({
         next: (data: CursoDomainEntity) => {
           this.curso = data;
-          
+          data.programa.forEach((element) => {
+            const titulo = new FormControl(element.tituloPrograma, [
+              Validators.required,
+              Validators.minLength(2),
+            ]);
+            const descripcion = new FormControl(element.descripcionPrograma, [
+              Validators.required,
+              Validators.minLength(2),
+            ]);
+            this.tituloProgramaForms.push(titulo);
+            this.descripcionProgramaForms.push(descripcion);
+          });
           this.FormUpdate.patchValue({
             titulo: data.titulo,
             descripcion: data.descripcion,
@@ -119,6 +161,15 @@ export class UpdateCourseComponent implements OnInit {
     if(this.curso.imagen != this.cursoUpdate.imagen){
       this.cursoUpdate.imagen = this.curso.imagen;
     }
+
+    if(this.curso.programa.length != this.tituloProgramaForms.length){
+
+    this.cursoUpdate.tituloPrograma = this.FormUpdate.get('tituloPrograma')?.value as string[];
+    this.cursoUpdate.descripcionPrograma = this.FormUpdate.get('descripcionPrograma')?.value as string[];
+
+    }
+
+
 
 
     this.delegateCurso.UpdateCursoUseCaseProvider.useFactory(this.cursoService)

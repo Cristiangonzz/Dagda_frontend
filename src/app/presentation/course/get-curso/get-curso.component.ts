@@ -102,7 +102,7 @@ export class GetCursoComponent implements OnInit, AfterViewInit {
         },
       });
   }
-
+  
   inscribirUsuario(curso: CursoDomainEntity) {
     if (this.usuarioLogeado) {
       this.router.navigate([`/usuario/inscribir/${curso.titulo}`]);
@@ -138,9 +138,6 @@ export class GetCursoComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-
-
 
   getUsuario() {
     this.delegateLogin.hasTokenUserUseCaseUseProvider.useFactory().execute();

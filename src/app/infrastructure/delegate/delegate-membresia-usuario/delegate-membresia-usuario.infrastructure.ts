@@ -6,6 +6,7 @@ import { MembresiaUsuarioService } from "src/app/domain/services/membresia-usuar
 import { CreateMembresiaUsuarioUseCase } from "src/app/application/use-case/membresia-usuario/create-membresia-usuario.use-case";
 import { PertenecerMembresiaUsuarioUseCase } from "src/app/application/use-case/membresia-usuario/Pertenecer-membresia-usuario.use-case";
 import { MembresiaService } from "src/app/domain/services/membresia.service.domain";
+import { GetMembresiaUsuarioIncripcionUseCase } from "src/app/application/use-case/membresia-usuario/get-membresia-usuario-email-nombre-curso.use-case";
 
 const CreateMembresiaUsuarioUseCaseFactory = (() => {
   let instance: CreateMembresiaUsuarioUseCase;
@@ -13,6 +14,19 @@ const CreateMembresiaUsuarioUseCaseFactory = (() => {
   const factory = (service: MembresiaUsuarioService): CreateMembresiaUsuarioUseCase => {
     if (!instance) {
       instance = new CreateMembresiaUsuarioUseCase(service);
+    }
+
+    return instance;
+  };
+
+  return factory;
+})();
+const GetMembresiaUsuarioIncripcionUseCaseFactory = (() => {
+  let instance: GetMembresiaUsuarioIncripcionUseCase;
+
+  const factory = (service: MembresiaUsuarioService): GetMembresiaUsuarioIncripcionUseCase => {
+    if (!instance) {
+      instance = new GetMembresiaUsuarioIncripcionUseCase(service);
     }
 
     return instance;
@@ -108,5 +122,10 @@ export const membresiaUsuarioUseCaseProviders = {
     provide: PertenecerMembresiaUsuarioUseCase,
     useFactory: PertenecerMembresiaUsuarioUseCaseFactory,
     deps: [MembresiaUsuarioService,MembresiaService],
+  },
+  getMembresiaUsuarioIncripcionUseCaseProvider: {
+    provide: GetMembresiaUsuarioIncripcionUseCase,
+    useFactory: GetMembresiaUsuarioIncripcionUseCaseFactory,
+    deps: [MembresiaUsuarioService],
   },
 };

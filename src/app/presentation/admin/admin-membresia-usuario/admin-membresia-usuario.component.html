@@ -1,58 +1,5 @@
 <div class="table-container" style="margin-top: 100px; text-align: center;padding-bottom: 60px; overflow: auto;">
   <a type="submit" routerLink="/membresia/create" class="btn btn-primary">Nuevo Membresia</a>
-  <a type="submit" (click)="mostrarFormulario()" class="btn btn-primary" style ="margin-left: 5px;">Asignar Membresia</a>
-  <div class="container d-flex justify-content-center" >
-    <div class="row" style="margin-top: 30px;">
-     
-  <form *ngIf="viewFormulario" (ngSubmit)="send()" [formGroup]="FormRegister">
-    <div class="form-group">
-      <app-form
-        [control]="FormRegister.controls.email"
-        type="email"
-        label="email"
-        placeHolder="ejemplo@gmail.com"
-      ></app-form>
-    </div>
-    <div class="form-group">
-      <app-form
-        [control]="FormRegister.controls.nombre"
-        type="text"
-        label="nombre"
-        placeHolder=""
-      ></app-form>
-    </div>
-    
-
-    <div class="form-group" style="margin: 3px;">
-      <button
-      style="margin: 3px;"
-        type="submit"
-        [disabled]="FormRegister.invalid"
-        class="btn btn-success"
-      >
-        Asignar
-      </button>
-      <button
-      style="margin: 3px;"
-        type="button"
-        class="btn btn-danger"
-        (click)="mostrarFormulario()"
-      >
-        Cancelar
-      </button>
-    </div>
-  </form>
-</div>
-</div>
-
-  
-  
-  
-  
-  
-  
-  
-  
   <table class="table table-bordered " style="width: 80%; margin: 0 auto;">
     <thead class="table-head">
       <tr class="bg-success text-white">

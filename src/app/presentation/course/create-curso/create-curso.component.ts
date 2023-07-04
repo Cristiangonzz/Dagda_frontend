@@ -52,7 +52,6 @@ export class CreateCursoComponent implements OnInit ,AfterViewInit{
 
   ngOnInit(): void {
     
-
     this.addContenidoPrograma();
     this.delegateCategoria.getAllCategoriaUseCaseProvider
       .useFactory(this.categoriaService)
