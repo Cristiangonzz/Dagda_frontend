@@ -169,6 +169,7 @@ export class UpdateCourseComponent implements OnInit {
 
     }
 
+    console.log("los datos para editar curso",this.cursoUpdate);
 
 
 
