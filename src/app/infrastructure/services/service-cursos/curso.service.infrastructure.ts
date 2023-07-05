@@ -34,6 +34,9 @@ export class CursoImplementationService extends CursoService {
   }
   update(id: string, Curso: UpdateCursoDto): Observable<CursoDomainEntity> {
     console.log("lo que llega a enviar el update",Curso);
+    Curso.precio = Number(Curso.precio);
+    console.log("lo que llega a enviar el update(number)",Curso);
+
     return this.http.put<CursoDomainEntity>(
       `${this.URL}/curso/update/${id}`,
       Curso,
