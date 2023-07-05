@@ -46,26 +46,31 @@
         
 
         <span>Programa del Curso</span>
-        <div *ngFor="let funcion of tituloProgramaForms.controls; let f = index" class="form-control" >
-          <div formArrayName="tituloPrograma">
-            <div *ngFor="let control of tituloProgramaForms.controls; let i = index" class="form-control">
-              <div class="form-group">
-                <label class="form-label">Titulo</label>
-                <angular-editor formControlName="{{i}}"></angular-editor>
-              </div>
-            </div>
-            <div formArrayName="tituloPrograma">
-              <div *ngFor="let control of descripcionProgramaForms.controls; let i = index" class="form-control">
-                <div class="form-group">
-                  <label class="form-label">Descripcion</label>
-                  <angular-editor formControlName="{{i}}"></angular-editor>
-                </div>
-              </div>
-              
+        <div >
+          <div formArrayName="content">
+            <div
+              *ngFor="let content of tituloProgramaForms.controls; let i = index"
+              class="form-control"
+            >
+
+            <app-form
+            [control]="FormRegister.controls.tituloPrograma.controls[i]"
+            type="text"
+            label="Titulo {{ i +1 }}"
+            placeHolder="Titulo {{ i+ 1}}"
+          ></app-form>
+
+
+          <app-form
+          [control]="FormRegister.controls.descripcionPrograma.controls[i]"
+          type="text"
+          label="Descripcion {{ i + 1}}"
+          placeHolder="Descripcion {{ i +1}}"
+        ></app-form>
 
               <button
               type="button"
-              (click)="removeContenidoPrograma(f)"
+              (click)="removeContenidoPrograma(i)"
               class="btn btn-outline-danger"
             >
               Eliminar
