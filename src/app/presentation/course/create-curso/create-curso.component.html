@@ -54,41 +54,23 @@
             >
             <div class="form-group">
               <label class="form-label">titulo</label>
-              <angular-editor   formControlName="FormRegister.controls.tituloPrograma.controls[i]" ></angular-editor>
+              <angular-editor   formControlName="tituloPrograma[i].value" ></angular-editor>
             </div>
-            <!-- <app-form
-            [control]="FormRegister.controls.tituloPrograma.controls[i]"
-            type="text"
-            label="Titulo {{ i +1 }}"
-            placeHolder="Titulo {{ i+ 1}}"
-          ></app-form> -->
+           
           <div class="form-group">
             <label class="form-label">Descripcion</label>
-            <angular-editor   formControlName="FormRegister.controls.descripcionPrograma.controls[i].value" ></angular-editor>
+            <angular-editor   formControlName="descripcionPrograma[i].value" ></angular-editor>
           </div>
 
-          <!-- <app-form
-          [control]="FormRegister.controls.descripcionPrograma.controls[i]"
-          type="text"
-          label="Descripcion {{ i + 1}}"
-          placeHolder="Descripcion {{ i +1}}"
-        ></app-form> -->
+          
 
-              <button
-              type="button"
-              (click)="removeContenidoPrograma(i)"
-              class="btn btn-outline-danger"
-            >
+            <button type="button" (click)="removeContenidoPrograma(i)" class="btn btn-outline-danger">
               Eliminar
             </button>
               
             </div>
             
-            <button
-              type="button"
-              (click)="addContenidoPrograma()"
-              class="btn btn-outline-primary"
-            >
+            <button type="button" (click)="addContenidoPrograma()"class="btn btn-outline-primary">
               añadir
             </button>
           </div>
@@ -116,3 +98,17 @@
     </div>
   </div>
 </div>
+
+<!-- <app-form
+          [control]="FormRegister.controls.descripcionPrograma.controls[i]"
+          type="text"
+          label="Descripcion {{ i + 1}}"
+          placeHolder="Descripcion {{ i +1}}"
+        ></app-form> -->
+
+         <!-- <app-form
+            [control]="FormRegister.controls.tituloPrograma.controls[i]"
+            type="text"
+            label="Titulo {{ i +1 }}"
+            placeHolder="Titulo {{ i+ 1}}"
+          ></app-form> -->
