@@ -151,9 +151,9 @@ export class UpdateCourseComponent implements OnInit {
       this.cursoUpdate.titulo = this.FormUpdate.get('titulo')
         ?.value as string;
 
-    // if(this.curso.imagen != this.cursoUpdate.imagen){
-    //   this.cursoUpdate.imagen = this.curso.imagen;
-    // }
+    if(this.curso.imagen != this.cursoUpdate.imagen){
+      this.cursoUpdate.imagen = this.curso.imagen;
+    }
 
     if(this.curso.programa.length != this.tituloProgramaForms.length){
 
