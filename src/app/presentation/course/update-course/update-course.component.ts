@@ -138,8 +138,7 @@ export class UpdateCourseComponent implements OnInit {
         ?.value as string;
 
     if (this.curso.precio != (this.FormUpdate.get('precio')?.value as number))
-      this.cursoUpdate.precio = this.FormUpdate.get('precio')
-        ?.value as number;
+      this.cursoUpdate.precio = this.FormUpdate.get('precio')?.value as number;
 
     if (
       this.curso.detalle != (this.FormUpdate.get('detalle')?.value as string)
@@ -147,20 +146,19 @@ export class UpdateCourseComponent implements OnInit {
       this.cursoUpdate.detalle = this.FormUpdate.get('detalle')
         ?.value as string;
 
+    if(this.seleccionofoto){
+      this.cursoUpdate.imagen = this.curso.imagen;
+    }
     if (this.curso.titulo != (this.FormUpdate.get('titulo')?.value as string))
       this.cursoUpdate.titulo = this.FormUpdate.get('titulo')
         ?.value as string;
 
-    if(this.curso.imagen != this.cursoUpdate.imagen){
-      this.cursoUpdate.imagen = this.curso.imagen;
-    }
-
-    if(this.curso.programa.length != this.tituloProgramaForms.length){
-
+    
+   
     this.cursoUpdate.tituloPrograma = this.FormUpdate.get('tituloPrograma')?.value as string[];
     this.cursoUpdate.descripcionPrograma = this.FormUpdate.get('descripcionPrograma')?.value as string[];
 
-    }
+    
 
     console.log("los datos para editar curso",this.cursoUpdate);
 
@@ -185,6 +183,7 @@ export class UpdateCourseComponent implements OnInit {
   }
 
   //iamgen
+  seleccionofoto: boolean = false;
   imageData!:FormData;
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -199,6 +198,7 @@ export class UpdateCourseComponent implements OnInit {
       .subscribe({
         next: (value:any) => {
           this.curso.imagen = value.filename;
+          this.seleccionofoto = true;
         },
         error: (error) => {
           this.sweetAlert.toFire('Imagen', 'Error al Guardar Imagen', 'error');
