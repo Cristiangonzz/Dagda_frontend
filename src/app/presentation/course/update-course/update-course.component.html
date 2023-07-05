@@ -29,15 +29,11 @@
             <img  width="100px"  [src]="this.curso.imagen" alt="Imagen desde el backend">
           </div>
          
-  
           <div class="form-group">
-            <app-form
-              [control]="FormUpdate.controls.detalle"
-              type="text"
-              label="detalle"
-              placeHolder=""
-            ></app-form>
+            <label class="form-label">Detalle</label>
+            <angular-editor formControlName="detalle"></angular-editor>
           </div>
+          
           <div class="form-group">
             <app-form
               [control]="FormUpdate.controls.precio"
