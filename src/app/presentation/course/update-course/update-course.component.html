@@ -50,18 +50,14 @@
                 *ngFor="let content of tituloProgramaForms.controls; let i = index"
                 class="form-control"
               >
-              <app-form
-              [control]="FormUpdate.controls.tituloPrograma.controls[i]"
-              type="text"
-              label="Titulo {{ i +1 }}"
-              placeHolder="Titulo {{ i+ 1}}"
-            ></app-form>
-            <app-form
-            [control]="FormUpdate.controls.descripcionPrograma.controls[i]"
-            type="text"
-            label="Descripcion {{ i + 1}}"
-            placeHolder="Descripcion {{ i +1}}"
-          ></app-form>
+              <div class="form-group">
+                <label class="form-label">Titulo</label>
+                <angular-editor   [formControl]="FormUpdate.controls.tituloPrograma.controls[i]" ></angular-editor>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Descripcion</label>
+                <angular-editor   [formControl]="FormUpdate.controls.descripcionPrograma.controls[i]" ></angular-editor>
+              </div>
            
         
            
