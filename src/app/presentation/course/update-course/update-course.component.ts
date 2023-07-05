@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursoService } from 'src/app/domain/services/curso.service.domain';
@@ -16,7 +16,7 @@ import { CategoriaDomainEntity } from 'src/app/domain/entities/categoria.entity.
   templateUrl: './update-course.component.html',
   styleUrls: ['./update-course.component.css'],
 })
-export class UpdateCourseComponent implements OnInit {
+export class UpdateCourseComponent implements OnInit ,AfterViewInit {
   delegateCurso = cursoUseCaseProviders;
   delegateCategoria = categoriaUseCaseProviders;
   cursoUpdate: UpdateCursoDto = {} as UpdateCursoDto;
@@ -43,6 +43,9 @@ export class UpdateCourseComponent implements OnInit {
     private categoriaService: CategoriaService,
   ) {
      
+  }
+  ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
   }
   ngOnInit(): void {
 
