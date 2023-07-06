@@ -25,6 +25,12 @@ import {UpdateCourseComponent } from './update-course/update-course.component';
     SharedModule,
     AngularEditorModule,
   ],
-  exports: [],
+  exports: [
+    CreateCursoComponent,
+    DeleteCursoComponent,
+    UpdateCourseComponent,
+    GetCursoComponent,
+    GetAllCursoComponent,
+  ],
 })
 export class CursoModule {}
