@@ -1,0 +1,29 @@
+
+/*for Demo Only*/
+.demo-row {
+  background-color: #3a3a3a;
+  padding: 10px 0;
+}
+
+
+/*Implement*/
+.sponsor-feature {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+#id-sponsors .carousel {
+    margin-bottom: 20px;
+}
+#id-sponsors .item {
+    padding-bottom: 20px;
+}
+#id-sponsors .carousel-indicators {
+    bottom: -25px;
+}
