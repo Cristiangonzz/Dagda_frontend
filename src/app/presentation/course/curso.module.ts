@@ -9,6 +9,7 @@ import { GetCursoComponent } from './get-curso/get-curso.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { DeleteCursoComponent } from './delete-curso/delete-curso.component';
 import {UpdateCourseComponent } from './update-course/update-course.component';
+import { ProgramaCursoComponent } from './programa-curso/programa-curso.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {UpdateCourseComponent } from './update-course/update-course.component';
     UpdateCourseComponent,
     GetCursoComponent,
     GetAllCursoComponent,
+    ProgramaCursoComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import {UpdateCourseComponent } from './update-course/update-course.component';
     UpdateCourseComponent,
     GetCursoComponent,
     GetAllCursoComponent,
+    ProgramaCursoComponent,
   ],
 })
 export class CursoModule {}

@@ -1,0 +1,18 @@
+
+
+<h1 style="margin: 15px;color:rgb(8, 29, 46);font-family:'Times New Roman', Times, serif;font-size: 25px;" >Programa del Curso</h1>
+
+<div class="accordion" id="accordionPanelsStayOpenExample" *ngFor="let programa of curso.programa">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" [innerHTML]="programa.tituloPrograma">
+        <!-- {{programa.tituloPrograma}} -->
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body" [innerHTML]="programa.descripcionPrograma">
+       <!-- {{programa.descripcionPrograma}} -->
+      </div>
+    </div>
+  </div>
+</div>
