@@ -1,0 +1,58 @@
+<div class="container d-flex justify-content-center" >
+    <div class="row" style="margin-top:  80px;">
+      <div class="col">
+        <h2 class="form-title">Actualizar Membresia</h2>
+  
+        <form (ngSubmit)="send()" [formGroup]="FormUpdate">
+          <div class="form-group">
+            <app-form
+              [control]="FormUpdate.controls.nombre"
+              type="text"
+              label="titulo"
+              placeHolder=""
+            ></app-form>
+          </div>
+          
+  
+  <div class="form-group">
+    <label class="form-label">Beneficios</label>
+    <angular-editor formControlName="beneficios"></angular-editor>
+  </div>
+          
+          
+         
+        
+          
+          <div class="form-group">
+            <app-form
+              [control]="FormUpdate.controls.costo"
+              type="number"
+              label="precio"
+              placeHolder=""
+            ></app-form>
+          </div>
+
+          <div class="form-group" style="margin: 3px;">
+            <button
+            
+            style="margin: 3px;"
+              type="submit"
+              [disabled]="FormUpdate.invalid"
+              class="btn btn-success"
+            >
+              Actualizar
+            </button>
+            <button
+            style="margin: 3px;"
+              type="button"
+              class="btn btn-danger"
+              routerLink="/usuario/adminCurso"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

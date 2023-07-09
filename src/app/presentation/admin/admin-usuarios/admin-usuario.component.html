@@ -17,7 +17,13 @@
     <tbody>
       <tr *ngFor="let user of usuarios; let srNo  = index">
         <td>{{srNo +1}}</td>
-        <td>{{ user.tipo_usuario }}</td>
+        <td *ngIf="user.tipo_usuario === 1" >ADMIN</td>
+        <td *ngIf="user.tipo_usuario === 0" >Cliente</td>
+        <td *ngIf="user.tipo_usuario === 2" >SOCIO EDUCADOR</td>
+        <td *ngIf="user.tipo_usuario === 3" >SOCIO PROMOTOR</td>
+        <td *ngIf="user.tipo_usuario === 4" >EMPRENDEDOR</td>
+        <td *ngIf="user.tipo_usuario === 5" >SOCIO BASICO</td>
+        <td *ngIf="user.tipo_usuario === 6" >EDUCADOR</td>
         <td>{{ user.primer_nombre }}</td>
         <td>{{ user.primer_apellido }}</td>
         <td>{{ user.telefono }}</td>

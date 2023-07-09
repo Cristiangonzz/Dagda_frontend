@@ -7,6 +7,7 @@ import { GetAllMembresiaComponent } from './get-all-membresia/get-all-membresia.
 import { UpdateMembresiaComponent } from './update-membresia/update-membresia.component';
 import { RoutingMembresiaModule } from './routing-membresia.module';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { GetMembresiaComponent } from './get-membresia/get-membresia.component';
 
 
 
@@ -15,6 +16,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     CreateMembresiaComponent,
     GetAllMembresiaComponent,
     UpdateMembresiaComponent,
+    GetMembresiaComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     AngularEditorModule,
   
   ],
-  exports: [],
+  exports: [
+    CreateMembresiaComponent,
+    GetAllMembresiaComponent,
+    UpdateMembresiaComponent,
+    GetMembresiaComponent,
+  ],
 })
 export class MembresiaModule { }

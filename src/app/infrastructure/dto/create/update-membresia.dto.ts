@@ -1,5 +1,7 @@
 export interface UpdateMembresiaDto {
   nombre?: string;
+  
+  beneficios?: string;
 
   costo?: number;
 

@@ -101,7 +101,21 @@ export class NavbarComponent implements OnInit {
     }
     );
   }
+
   carrito(){
     this.router.navigate(['/carrito']);
   }
+  adminCurso(){
+    this.router.navigate(['usuario/adminCurso']);
+  }
+  adminMembresia(){
+    this.router.navigate(['usuario/adminMembresia']);
+  }
+  adminCategoria(){
+    this.router.navigate(['categoria/get-all']);
+  }
+  adminCliente(){
+    this.router.navigate(['usuario/adminUsuario']);
+  }
+  
 }

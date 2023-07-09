@@ -25,11 +25,11 @@ const routes: Routes = [
         component: GetMembresiaComponent,
         // canActivate: [PermissionLogeadoGuard],
       },
-      // {
-      //   path: `update`,
-      //   component: UpdateMembresiaComponent,
-      //    canActivate: [PermissionLogeadoGuard,PermissionRolAdminGuard],
-      // },
+      {
+        path: `update/:nombre`,
+        component: UpdateMembresiaComponent,
+         canActivate: [PermissionLogeadoGuard,PermissionRolAdminGuard],
+      },
       { path: `**`, redirectTo: 'get-all' },
     ],
   },

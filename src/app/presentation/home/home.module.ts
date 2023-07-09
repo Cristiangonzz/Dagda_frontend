@@ -5,16 +5,16 @@ import { HomeComponent } from './home/home.component';
 import { RoutingHomeModule } from './routing-home.module';
 import { CursoModule } from '../course/curso.module';
 import { PresentacionComponent } from './presentacion/presentacion.component';
-import { SponsorsComponent } from './sponsors/sponsor.component';
+import { TituloComponent } from './titulo/titulo.component';
 
 @NgModule({
-  declarations: [HomeComponent,PresentacionComponent,SponsorsComponent],
+  declarations: [HomeComponent,PresentacionComponent,TituloComponent],
   imports: [
     CommonModule,
     RoutingHomeModule,
     SharedModule,
     CursoModule,
   ],
-  exports: [HomeComponent,PresentacionComponent,SponsorsComponent],
+  exports: [HomeComponent,PresentacionComponent,TituloComponent],
 })
 export class HomeModule {}

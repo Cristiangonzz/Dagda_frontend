@@ -1,8 +1,9 @@
 
 /*for Demo Only*/
 .demo-row {
-  background-color: #3a3a3a;
+  
   padding: 10px 0;
+  transform: scale(0.5);
 }
 
 
@@ -15,14 +16,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5px 0;
+    margin: 5px 0; 
 }
 
 #id-sponsors .carousel {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #id-sponsors .item {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    margin-left: 200px;
 }
 #id-sponsors .carousel-indicators {
     bottom: -25px;

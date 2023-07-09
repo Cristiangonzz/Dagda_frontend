@@ -159,6 +159,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
     let nombre: string = '';
     if(this.rolUsuario === 0){
       this.asignarMembresiaUsuario();
+      return;
     }
     if(this.rolUsuario === 1){
       this.sweet.toFire(
@@ -167,7 +168,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
         'warning'
       );
       this.router.navigate([`/usuario/adminMembresia`]);
-
+      return;
     }
     if(this.rolUsuario === 2){
       nombre = 'SOCIO EDUCADOR';

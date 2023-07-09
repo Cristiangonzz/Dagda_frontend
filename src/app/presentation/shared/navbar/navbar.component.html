@@ -76,10 +76,10 @@
             </span>
           </a>
           <div class="dropdown-menu" style="right: 0;margin-top: 25px;" aria-labelledby="navbarDropdownMenuLink">
-            <a *ngIf="rol == 1" class ="dropdown-item" routerLink="usuario/adminCurso">Admin Curso</a>
-            <a *ngIf="rol == 1" class="dropdown-item" routerLink="usuario/adminMembresia">Admin Membresia</a>
-            <a *ngIf="rol == 1" class="dropdown-item" routerLink="categoria/get-all">Admin Categoria</a>
-            <a *ngIf="rol == 1" class="dropdown-item" routerLink="usuario/adminUsuario">Admin Cliente</a>
+            <a *ngIf="rol == 1" class ="dropdown-item"(click)="adminCurso()" >Admin Curso</a>
+            <a *ngIf="rol == 1" class="dropdown-item" (click)="adminMembresia()" >Admin Membresia</a>
+            <a *ngIf="rol == 1" class="dropdown-item" (click)="adminCategoria()" >Admin Categoria</a>
+            <a *ngIf="rol == 1" class="dropdown-item" (click)="adminCliente()" >Admin Cliente</a>
             <a class="dropdown-item" href="#">Editar perfil</a>
             <a class="dropdown-item" (click)="out()">salir</a>
           </div>

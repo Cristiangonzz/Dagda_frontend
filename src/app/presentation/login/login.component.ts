@@ -55,7 +55,7 @@ export class LoginComponent implements AfterViewInit {
             localStorage.removeItem('redirect');
           }else
           {
-            this.router.navigate([`curso/get-all`]);
+            this.router.navigate([`home`]);
           }
         },
         error: (err: Error) => {

@@ -126,8 +126,8 @@ editarCursoTitulo(titulo: string) {
   this.datoModalTitulo = titulo;
 }
 
-editarMembresia(titulo : string){
-  this.router.navigate([`curso/update/${titulo}`]);
+editarMembresia(nombre : string){
+  this.router.navigate([`membresia/update/${nombre}`]);
 }
 
 mostrarFormulario(){
