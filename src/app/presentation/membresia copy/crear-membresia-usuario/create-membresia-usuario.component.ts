@@ -25,6 +25,7 @@ import { IUsuarioDomain } from 'src/app/domain/interfaces/usuario.interface.doma
 })
 export class CreateMembresiaUsuarioComponent implements OnInit {
   @Input() asignar: boolean =false;
+  mostrarFormulario !: boolean;
   delegateMembresiaUsuario = membresiaUsuarioUseCaseProviders;
   delegateMembresia = membresiaUseCaseProviders;
   delegateUsuario = usuarioUseCaseProviders;
@@ -55,7 +56,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
+    this.mostrarFormulario = this.asignar;
     if (
       (this.activatedRoute.snapshot.params['nombreMembresia'] == null ||
       this.activatedRoute.snapshot.params['usuarioActual'] == null) &&
