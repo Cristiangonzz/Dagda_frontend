@@ -34,7 +34,7 @@ export class DeleteCursoComponent {
       },
       complete: () => {
         
-        this.sweet.toFire('Completo', 'Curso Creado', 'success');
+        this.sweet.toFire('Completo', 'Curso Eliminado', 'success');
       },
     });
   }

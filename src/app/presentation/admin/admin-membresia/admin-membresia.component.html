@@ -4,7 +4,8 @@
   <div class="container d-flex justify-content-center" >
     <div class="row" style="margin-top: 30px;">
      
-  <form *ngIf="viewFormulario" (ngSubmit)="send()" [formGroup]="FormRegister">
+      <app-create-membresia-usuario *ngIf="viewFormulario" [asignar]="viewFormulario"></app-create-membresia-usuario>
+  <!-- <form *ngIf="viewFormulario" (ngSubmit)="send()" [formGroup]="FormRegister">
     <div class="form-group">
       <app-form
         [control]="FormRegister.controls.email"
@@ -41,7 +42,7 @@
         Cancelar
       </button>
     </div>
-  </form>
+  </form> -->
 </div>
 </div>
 

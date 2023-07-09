@@ -8,6 +8,7 @@ import { InscribirUsuarioCursoComponent } from './inscribir-usuario-curso/inscri
 import { AdminCursoComponent } from './admin-cursos/admin-curso.component';
 import { AdminUsuarioComponent } from './admin-usuarios/admin-usuario.component';
 import { AdminMembresiaComponent } from './admin-membresia/admin-membresia.component';
+import { MembresiaUsuarioModule } from '../membresia copy/membresia-usuario.module';
 @NgModule({
   declarations: [
     CreateUserComponent,
@@ -21,12 +22,15 @@ import { AdminMembresiaComponent } from './admin-membresia/admin-membresia.compo
     ReactiveFormsModule,
     SharedModule,
     RoutingUsuarioModule,
+    MembresiaUsuarioModule,
   ],
   exports: [
     CreateUserComponent,
     InscribirUsuarioCursoComponent,
     AdminCursoComponent,
     AdminUsuarioComponent,
+    AdminMembresiaComponent,
+
   ],
 })
 export class UsuarioModule {}

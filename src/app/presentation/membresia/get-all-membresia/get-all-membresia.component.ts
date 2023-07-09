@@ -168,7 +168,7 @@ export class GetAllMembresiaComponent implements OnInit, OnDestroy {
   asignarMembresiaUsuario(nombre: string,precio: number) {
     //Funcionalidad pronta para cuando se haga el cambio a mercado pago y se pueda pagar la membresia
     if(precio == 0){
-      this.router.navigate([`membresia-usuario/create/${nombre}/${this.usuarioActual}`]);
+      this.router.navigate([`membresia-usuario/create/${nombre}/${this.usuarioActual}`],{ skipLocationChange: true });
     }else{
       this.router.navigate([`membresia/get/${nombre}`]);
     }

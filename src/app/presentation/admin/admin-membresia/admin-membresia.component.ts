@@ -136,7 +136,11 @@ mostrarFormulario(){
 send(){
   this.usuarioMembresia.email = this.FormRegister.get('email')?.value as string;
   this.usuarioMembresia.nombre = this.FormRegister.get('nombre')?.value as string;
+  console.log(this.usuarioMembresia.email)
+  console.log(this.usuarioMembresia.nombre)
+
   this.router.navigate([`membresia-usuario/create/${this.usuarioMembresia.nombre}/${this.usuarioMembresia.email}`]);
+  this.mostrarFormulario();
 
 }
 

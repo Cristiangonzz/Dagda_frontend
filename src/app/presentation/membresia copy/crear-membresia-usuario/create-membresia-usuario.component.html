@@ -1,0 +1,38 @@
+<form *ngIf="asignar" (ngSubmit)="send()" [formGroup]="FormRegister">
+    <div class="form-group">
+      <app-form
+        [control]="FormRegister.controls.email"
+        type="email"
+        label="email"
+        placeHolder="ejemplo@gmail.com"
+      ></app-form>
+    </div>
+    <div class="form-group">
+      <app-form
+        [control]="FormRegister.controls.nombre"
+        type="text"
+        label="nombre"
+        placeHolder=""
+      ></app-form>
+    </div>
+    
+
+    <div class="form-group" style="margin: 3px;">
+      <button
+      style="margin: 3px;"
+        type="submit"
+        [disabled]="FormRegister.invalid"
+        class="btn btn-success"
+      >
+        Asignar
+      </button>
+      <button
+      style="margin: 3px;"
+        type="button"
+        class="btn btn-danger"
+        (click)="cancelarFormulario()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>

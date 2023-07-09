@@ -61,6 +61,11 @@ export class HasRolUseCase {
                   this.statusRolEmmit.next(this.status);
                   return of(this.status);
                 }
+                if (usuario.tipo_usuario == 6) {
+                  this.status = 6;
+                  this.statusRolEmmit.next(this.status);
+                  return of(this.status);
+                }
                 return of(this.status);
               })
             

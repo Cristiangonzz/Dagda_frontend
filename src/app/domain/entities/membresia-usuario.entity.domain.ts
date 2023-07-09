@@ -3,6 +3,7 @@ import { IMembresiaDomain } from '../interfaces/membresia.inteface.domain';
 import { IUsuarioDomain } from '../interfaces/usuario.interface.domain';
 export class MembresiaUsuarioDomainEntity implements IMembresiaUsuarioDomain {
   id: string;
+  membresiaUsuarioId: string;
   membresia: IMembresiaDomain;
   usuario: IUsuarioDomain;
   fecha_creado?: number | Date;
@@ -10,12 +11,14 @@ export class MembresiaUsuarioDomainEntity implements IMembresiaUsuarioDomain {
 
   constructor(
     id?: string,
+    membresiaUsuarioId?: string,
     membresia?: IMembresiaDomain,
     usuario?: IUsuarioDomain,
     fecha_creado?: Date,
     activo?: boolean
   ) {
     this.id = id as string;
+    this.membresiaUsuarioId = membresiaUsuarioId as string;
     this.membresia = membresia as IMembresiaDomain;
     this.usuario = usuario as IUsuarioDomain;
     this.fecha_creado = fecha_creado as number | Date;
