@@ -117,5 +117,7 @@ export class NavbarComponent implements OnInit {
   adminCliente(){
     this.router.navigate(['usuario/adminUsuario']);
   }
-  
+  referenciar(){
+    this.router.navigate(['referencia/planilla']);
+  }  
 }
