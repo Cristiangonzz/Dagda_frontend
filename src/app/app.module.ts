@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InfrastructureModule } from './infrastructure/infrastructure.module';
 import { SharedModule } from './presentation/shared/shared.module';
-
 @NgModule({
     declarations: [AppComponent,],
     providers: [],
@@ -17,6 +16,7 @@ import { SharedModule } from './presentation/shared/shared.module';
         InfrastructureModule,
         BrowserAnimationsModule,
         SharedModule,
+    
     ]
 })
 export class AppModule {}

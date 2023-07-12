@@ -6,6 +6,7 @@ import { RoutingHomeModule } from './routing-home.module';
 import { CursoModule } from '../course/curso.module';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { TituloComponent } from './titulo/titulo.component';
+import { VideoModule } from '../videos-cursos/videos.module';
 
 @NgModule({
   declarations: [HomeComponent,PresentacionComponent,TituloComponent],
@@ -14,6 +15,7 @@ import { TituloComponent } from './titulo/titulo.component';
     RoutingHomeModule,
     SharedModule,
     CursoModule,
+    VideoModule,
   ],
   exports: [HomeComponent,PresentacionComponent,TituloComponent],
 })
