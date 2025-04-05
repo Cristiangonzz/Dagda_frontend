@@ -12,9 +12,9 @@ import { SharedModule } from './presentation/shared/shared.module';
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         InfrastructureModule,
-        BrowserAnimationsModule,
         SharedModule,
     
     ]

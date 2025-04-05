@@ -65,10 +65,9 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
     private readonly activateRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
-   if(this.activateRoute.snapshot.params['id']){
-     this.guardarReferente();
-   }
-    
+    if (this.activateRoute.snapshot.params['id']) {
+      this.guardarReferente();
+    }
   }
 
   ngAfterViewInit(): void {
@@ -82,7 +81,7 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (response: UsuarioDomainEntity) => {
           this.sweet.toFire(`${response.usuario}`, 'Cuenta Creada', 'success');
-          if(this.usuarioReferente){
+          if (this.usuarioReferente) {
             this.crearReferencia(response.email);
           }
           this.router.navigate([`home`]);
@@ -117,13 +116,14 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       .useFactory(this.nodeMailerService)
       .execute(data)
       .subscribe({
-        next: () => {
+        next: (response: MensajeCorreoDomainEntity) => {
+          console.log('Respuesta del servidor:', response);
           this.registrarUsuario();
         },
-        error: () => {
+        error: (err) => {
           this.sweet.toFire(
             'Correo Invalido',
-            'Ingrese un correo valido',
+            'Ingrese un correo valido:' + JSON.stringify(err, null, 2),
             'error'
           );
         },
@@ -136,33 +136,28 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (response: UsuarioDomainEntity) => {
           this.usuarioReferente = response.email;
-
         },
         error: (err: Error) => {
           this.sweet.toFire('Link Invalido', 'Vuelva a intentarlo', 'error');
         },
       });
-     
   }
 
-  crearReferencia(newUsuario: string){
-    const dataReferencia : RegistrarUsuarioReferenciaDto = {
+  crearReferencia(newUsuario: string) {
+    const dataReferencia: RegistrarUsuarioReferenciaDto = {
       usu_referente: this.usuarioReferente,
-      usu_referido: newUsuario
-    }
-    this.delegateUsuarioReferencia
-    .createUsuarioReferenciaUseCaseProvider
-    .useFactory(this.usuarioReferenciaService)
-    .execute(dataReferencia).subscribe({
-      next: (response: UsuarioReferenciaDomainEntity) => {
-        this.sweet.toFire('Exito', 'Referencia creada', 'success');
-
-      },
-      error: (err: Error) => {
-        this.sweet.toFire('Link Invalido', 'Vuelva a intentarlo', 'error');
-      }
-
-    })
-
+      usu_referido: newUsuario,
+    };
+    this.delegateUsuarioReferencia.createUsuarioReferenciaUseCaseProvider
+      .useFactory(this.usuarioReferenciaService)
+      .execute(dataReferencia)
+      .subscribe({
+        next: (response: UsuarioReferenciaDomainEntity) => {
+          this.sweet.toFire('Exito', 'Referencia creada', 'success');
+        },
+        error: (err: Error) => {
+          this.sweet.toFire('Link Invalido', 'Vuelva a intentarlo', 'error');
+        },
+      });
   }
 }

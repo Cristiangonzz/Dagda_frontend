@@ -14,4 +14,6 @@ export abstract class CursoService extends BaseService<CursoDomainEntity> {
   abstract update(id: string, entity: UpdateCursoDto): Observable<CursoDomainEntity>;
   abstract saveImagen(imagen: FormData): Observable<string>;
   abstract getimagen(filname: string): Observable<any>;
+
+
 }

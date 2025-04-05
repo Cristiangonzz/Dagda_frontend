@@ -23,7 +23,7 @@
               <select formControlName="categoria" class="form-control">
                 <option *ngFor="let opcion of categorias" [value]="opcion">{{ opcion }}</option>
               </select>
-        </div>
+        </div>  
         <input type="file" (change)="onFileSelected($event)">
         <div *ngIf="this.curso.imagen">
           <img  width="100px"  [src]="this.curso.imagen" alt="Imagen desde el backend">

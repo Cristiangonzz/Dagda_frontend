@@ -11,7 +11,7 @@ import { GetMembresiaUsuarioIncripcionDTO } from '../../dto/get/get-usuario-memb
   providedIn: 'root',
 })
 export class MembresiaUsuarioImplementationService extends MembresiaUsuarioService {
-  URL = 'https://backend.corpdagda.com';
+  URL ='https://backend-academy-cristianuruuy-dev.apps.rm2.thpm.p1.openshiftapps.com';
 
   constructor(private http: HttpClient) {
     super();
