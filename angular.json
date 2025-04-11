@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MatCafe-FrontEnd-Sofka:build:production"
+              "buildTarget": "MatCafe-FrontEnd-Sofka:build:production"
             },
             "development": {
-              "browserTarget": "MatCafe-FrontEnd-Sofka:build:development"
+              "buildTarget": "MatCafe-FrontEnd-Sofka:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MatCafe-FrontEnd-Sofka:build"
+            "buildTarget": "MatCafe-FrontEnd-Sofka:build"
           }
         },
         "test": {
