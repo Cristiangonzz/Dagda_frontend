@@ -112,6 +112,7 @@ export class CreateUserComponent implements OnInit, AfterViewInit {
       subject: 'Registro de Usuario en Academia Dagda',
       body: `<b>Felicitaciones se registro en Academia Dagda , le damos la bienvenida!!</b>`,
     };
+    console.log('data', data);
     this.delegateNodeMailer.nodeMailerUseCaseProvider
       .useFactory(this.nodeMailerService)
       .execute(data)
