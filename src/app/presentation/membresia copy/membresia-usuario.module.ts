@@ -13,11 +13,11 @@ import { RoutingMembresiaUsuarioModule } from './routing-membresia-usuario.modul
   
   ],
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RoutingMembresiaUsuarioModule,
+    // CommonModule,
+    // ReactiveFormsModule,
+    // RoutingMembresiaUsuarioModule,
    
-    SharedModule,
+    // SharedModule,
   ],
   exports: [
     CreateMembresiaUsuarioComponent,
