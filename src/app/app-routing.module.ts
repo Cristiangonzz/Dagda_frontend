@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { BackGuard } from './presentation/shared/guards/back.guard';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {

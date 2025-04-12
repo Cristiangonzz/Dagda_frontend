@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { InfrastructureModule } from './infrastructure/infrastructure.module';
 import { SharedModule } from './presentation/shared/shared.module';
+
 @NgModule({
     declarations: [AppComponent,],
     providers: [],
@@ -16,7 +17,6 @@ import { SharedModule } from './presentation/shared/shared.module';
         AppRoutingModule,
         InfrastructureModule,
         SharedModule,
-    
     ]
 })
 export class AppModule {}

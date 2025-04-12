@@ -4,7 +4,6 @@ import { loginUseCaseProviders } from 'src/app/infrastructure/delegate/delegete-
 import { SweetAlert } from '../../shared/sweetAlert/sweet-alert.presentation';
 import { CrearMembresiaUsuarioDto } from 'src/app/infrastructure/dto/create/create-membresia-usuario.dto';
 import { MembresiaUsuarioService } from 'src/app/domain/services/membresia-usuario.service.domain';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MembresiaUsuarioDomainEntity } from 'src/app/domain/entities/membresia-usuario.entity.domain';
 import { IUsuarioTokenDomain } from 'src/app/domain/interfaces/usuario.token.interface.domain';
 import { usuarioUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-usuario/delegate-usuario.infrastructure';
@@ -12,12 +11,13 @@ import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
 import { UpdateUsuarioDto } from 'src/app/infrastructure/dto/create/update-usuario.dto';
 import { membresiaUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-membresia/delegate-membresia.infrastructure';
 import { MembresiaService } from 'src/app/domain/services/membresia.service.domain';
-import { MembresiaDomainEntity } from 'src/app/domain/entities/membresia.entity.domain';
 import { UsuarioDomainEntity } from 'src/app/domain/entities/usuario.entity.domain';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GetMembresiaUsuarioIncripcionDTO } from 'src/app/infrastructure/dto/get/get-usuario-membresia-email-nombre.dto';
 import Swal from 'sweetalert2';
 import { IUsuarioDomain } from 'src/app/domain/interfaces/usuario.interface.domain';
+
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-create-membresia-usuario',
   templateUrl: './create-membresia-usuario.component.html',
@@ -37,6 +37,7 @@ export class CreateMembresiaUsuarioComponent implements OnInit {
     email: '',
     nombre: '',
   };
+  
 
   FormRegister = new FormGroup({
     email: new FormControl('', [

@@ -1,13 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CategoriaDomainEntity } from 'src/app/domain/entities/categoria.entity.domain';
-import { CategoriaService } from 'src/app/domain/services/categoria.service.domain';
-import { CrearCategoriaDto } from '../../dto/create/create-categoria.dto';
-import { UpdateCategoriaDto } from '../../dto/create/update-categoria.dto';
 import { NodeMailerService } from 'src/app/domain/services/nodemailer.service.domain';
 import { MensajeCorreoDomainEntity } from 'src/app/domain/entities/mensaje-correo.entity.domain';
 import { SendEmailDto } from '../../dto/send-email.dto';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',

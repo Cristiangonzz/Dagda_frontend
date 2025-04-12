@@ -1,4 +1,3 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
@@ -6,6 +5,7 @@ import { RegistrarUsuarioDto } from '../../dto/create/create-usuario.dto';
 import { UsuarioDomainEntity } from 'src/app/domain/entities/usuario.entity.domain';
 import { UpdateUsuarioDto } from '../../dto/create/update-usuario.dto';
 import { SignInDto } from '../../dto/create/sign-in.dto';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',

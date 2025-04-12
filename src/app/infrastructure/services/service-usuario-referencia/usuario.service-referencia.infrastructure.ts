@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UsuarioReferenciaService } from 'src/app/domain/services/usuario-referente.service.domain';
 import { UsuarioReferenciaDomainEntity } from 'src/app/domain/entities/usuario-referencia.entity.domain';
 import { RegistrarUsuarioReferenciaDto } from '../../dto/create/create-usuario-referencia.dto';
 import { UpdateUsuarioReferenciaDto } from '../../dto/create/update-usuario-referencia.dto';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
