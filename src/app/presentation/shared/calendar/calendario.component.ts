@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { CalendarEvent, CalendarView } from 'angular-calendar';
-import { startOfDay } from 'date-fns';
+import { CalendarEvent } from 'angular-calendar';
+import { startOfDay, addMonths, subMonths } from 'date-fns';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { loginUseCaseProviders } from 'src/app/infrastructure/delegate/delegete-login/delegate-login.infrastructure';
+import { usuarioUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-usuario/delegate-usuario.infrastructure';
+import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
+
 
 @Component({
   selector: 'app-calendario',
@@ -8,42 +13,76 @@ import { startOfDay } from 'date-fns';
   styleUrls: ['./calendario.component.css']
 })
 export class CalendarioComponent{
-  // view: CalendarView = CalendarView.Month;
-  view: string = 'month';
-  year: number = new Date().getFullYear();
-  months: Date[] = Array.from({ length: 12 }, (_, i) => new Date(this.year, i, 1));
+  delegateLogin = loginUseCaseProviders;
+  delegateUsuario = usuarioUseCaseProviders;
 
-  CalendarView = CalendarView;
   viewDate: Date = new Date();
-  activeDayIsOpen: boolean = true;
+  events: CalendarEvent[] = [];
 
-  events: CalendarEvent[] = [
-   
-    {
-      start: new Date(this.year, 3, 15),
-      title: 'Evento en abril',
-    }
-  ];
+  selectedDateEvents: CalendarEvent[] = [];
+  selectedDate: Date = new Date();
+  rol!: number;
+  isAdmin?: boolean = false;
 
-  // setView(view: CalendarView) {
-  //   this.view = view;
-  // }
+  constructor(
+    private modalService: NgbModal,
+    private usuarioService: UsuarioService
+  ) {}
 
-  // closeOpenMonthViewDay(): void {
-  //  this.activeDayIsOpen = false;
-  // }
-  
-  addEvent(date: Date) {
-    const title = prompt('Escribe una anotación para este día:');
-    if (title) {
+  openDayModal(day: any, content: any) {
+    this.selectedDate = day.date;
+    this.selectedDateEvents = day.events;
+    this.modalService.open(content, { size: 'lg' });
+  }
+
+  addEvent() {
+    const title = prompt('Nombre de la actividad:');
+    const expositor = prompt('Nombre del expositor:');
+    if (title && expositor) {
       this.events = [
         ...this.events,
         {
-          start: startOfDay(date),
+          start: startOfDay(this.selectedDate),
           title,
-        },
+          meta: {
+            expositor
+          }
+        }
       ];
+      this.selectedDateEvents = this.events.filter(
+        event => startOfDay(event.start).getTime() === startOfDay(this.selectedDate).getTime()
+      );
     }
+  }
+
+  deleteEvent(eventToDelete: CalendarEvent) {
+    this.events = this.events.filter(e => e !== eventToDelete);
+    this.selectedDateEvents = this.selectedDateEvents.filter(e => e !== eventToDelete);
+  }
+
+  prevMonth() {
+    this.viewDate = subMonths(this.viewDate, 1);
+  }
+  
+  nextMonth() {
+    this.viewDate = addMonths(this.viewDate, 1);
+  }
+
+  actualizarRol() {
+    this.delegateLogin.hasRolUseCaseProvider
+      .useFactory(this.usuarioService)
+      .execute();
+    this.delegateLogin.hasRolUseCaseProvider
+      .useFactory(this.usuarioService)
+      .statusRolEmmit.subscribe((status: number) => {
+        this.rol = status;
+       
+        if (status === 1) {
+          this.isAdmin = true;
+        } else {
+          this.isAdmin = false;
+        }
+      });
   }
 
   

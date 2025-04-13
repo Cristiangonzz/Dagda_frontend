@@ -5,7 +5,7 @@
     src="../../../../assets/images/dagda.jpg"
     style="width: 50px; height: 50px; margin-left: 20px;object-fit: cover;"
     >
-    Dagda
+    {{ nameAPP }}
   </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-8" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,12 +24,6 @@
       <li *ngIf="usuarioLogeado"  class="nav-item">
         <a class="nav-link" (click)="membresia()">Membresia</a>
       </li>
-
-      
-      
-      <form class="form-inline">
-        <input class="form-control mr-2" type="search" placeholder="buscar curso" aria-label="Search">
-      </form>
 
       <li *ngIf="!usuarioLogeado" class="nav-item">
         <a class="nav-link" (click)="registrarse()">Registrarse</a>

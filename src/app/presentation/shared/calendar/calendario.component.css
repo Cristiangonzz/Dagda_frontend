@@ -41,7 +41,7 @@
   .cal-event-title {
     white-space: normal;
     word-break: break-word;
-    font-size: 11px;
+    font-size: 13px;
     color: #444;
   }
   
@@ -49,3 +49,36 @@
     background-color: #f0f8ff;
   }
   
+/* Para la clase .calendario-container, se puede agregar un borde y un color de fondo para que se vea más atractivo. */
+  .truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Ajusta el ancho máximo según sea necesario */
+  }
+  
+  /* Anchos máximos según el tamaño de pantalla */
+  @media (min-width: 300px) { /* sm */
+    .truncate-text {
+      max-width: 5px;
+    }
+  }
+
+  /* Anchos máximos según el tamaño de pantalla */
+@media (min-width: 640px) { /* sm */
+  .truncate-text {
+    max-width: 50px;
+  }
+}
+
+@media (min-width: 768px) { /* md */
+  .truncate-text {
+    max-width: 100px;
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .truncate-text {
+    max-width: 150px;
+  }
+}

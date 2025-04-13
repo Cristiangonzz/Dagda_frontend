@@ -1,71 +1,78 @@
-<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-  <div *ngFor="let month of months">
-    <h3 class="text-center font-bold mb-2">
-      {{ month | date: 'MMMM yyyy' }}
-    </h3>
-
-    <mwl-calendar-month-view
-      [viewDate]="month"
-      [events]="events"
-      (dayClicked)="addEvent($event.day.date)">
-    </mwl-calendar-month-view>
-  </div>
-</div> -->
-
-
-<!-- Por Mes y ver directamente el texto -->
-<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-  <div *ngFor="let month of months">
-    <h3 class="text-center font-bold mb-2">
-      {{ month | date: 'MMMM yyyy' }}
-    </h3>
-
-    <mwl-calendar-month-view
-      [viewDate]="month"
-      [events]="events"
-      (dayClicked)="addEvent($event.day.date)"
-      [cellTemplate]="customDayTemplate">
-    </mwl-calendar-month-view>
-  </div>
-</div> -->
-
-<!-- Plantilla personalizada del día -->
-<!-- <ng-template #customDayTemplate let-day="day">
-  <div class="cal-day-cell" [class.bg-highlight]="day.isToday">
-    <div class="cal-day-number">{{ day.date | date: 'd' }}</div>
-    <div class="cal-day-events">
-      <div *ngFor="let event of day.events" class="cal-event-title">
-        - {{ event.title }}
-      </div>
-    </div>
-  </div>
-</ng-template> -->
 
 
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-  <div *ngFor="let month of months">
-    <h3 class="text-center font-bold mb-2">
-      {{ month | date: 'MMMM yyyy' }}
-    </h3>
-
-    <mwl-calendar-month-view
-      [viewDate]="month"
-      [events]="events"
-      (dayClicked)="addEvent($event.day.date)"
-      [cellTemplate]="customDayTemplate">
-    </mwl-calendar-month-view>
-  </div>
+<div class="text-center my-4">
+  <button (click)="prevMonth()" class="mr-2 px-4 py-2 bg-blue-500 text-back rounded">Anterior</button>
+  <span class="font-bold text-lg">  {{ viewDate | date: 'MMMM yyyy' }}  </span>
+  <button (click)="nextMonth()" class="ml-2 px-4 py-2 bg-blue-500 text-back rounded">Siguiente</button>
 </div>
 
-<!-- Plantilla personalizada del día -->
+<mwl-calendar-month-view
+  [viewDate]="viewDate"
+  [events]="events"
+  (dayClicked)="openDayModal($event.day, modalContent)"
+  [cellTemplate]="customDayTemplate">
+</mwl-calendar-month-view>
+
+
+
 <ng-template #customDayTemplate let-day="day">
   <div class="cal-day-cell" [class.bg-highlight]="day.isToday">
     <div class="cal-day-number">{{ day.date | date: 'd' }}</div>
     <div class="cal-day-events">
-      <div *ngFor="let event of day.events" class="cal-event-title">
-        - {{ event.title }}
+      <div *ngIf="day.events.length > 0" class="text-gray-400 text-xs italic">Actividades</div>
+
+      <div *ngFor="let event of day.events" class="cal-event-title truncate-text">
+        Actividad : {{ event.title }}
+        <span *ngIf="event.meta?.expositor" class="text-gray-500"> - {{ event.meta.expositor }}</span>
       </div>
+      <div *ngIf="day.events.length > 2" class="text-gray-400 text-xs italic">+{{ day.events.length - 2 }} más</div>
     </div>
   </div>
 </ng-template>
+
+
+
+
+
+
+<ng-template #modalContent let-modal>
+  <div class="modal-header d-flex flex-wrap justify-content-between align-items-center">
+    <h5 class="modal-title text-truncate w-75">
+      Eventos del {{ selectedDate | date: 'fullDate' }}
+    </h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body p-3" style="max-height: 60vh; overflow-y: auto;">
+    <div *ngIf="selectedDateEvents.length > 0; else noEvents">
+      <table class="table table-bordered table-sm">
+        <thead class="table-light">
+          <tr>
+            <th>Actividad</th>
+            <th>Expositor</th>
+            <th *ngIf="!isAdmin">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of selectedDateEvents">
+            <td class="truncate-text">{{ event.title }}</td>
+            <td class="truncate-text">{{ event.meta?.expositor }}</td>
+            <td *ngIf="!isAdmin">
+              <button class="btn btn-sm btn-danger" (click)="deleteEvent(event)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-template #noEvents>
+      <p class="text-muted">No hay eventos registrados para este día.</p>
+    </ng-template>
+
+    <button *ngIf="!isAdmin" class="btn btn-primary w-100 mt-3" (click)="addEvent()">Agregar Evento</button>
+  </div>
+</ng-template>
+
+
+

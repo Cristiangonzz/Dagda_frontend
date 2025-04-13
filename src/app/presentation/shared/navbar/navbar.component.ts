@@ -7,6 +7,7 @@ import { UsuarioService } from 'src/app/domain/services/usuario.service.domain';
 import { cursoUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-curso/delegate-course.infrastructure';
 import { usuarioUseCaseProviders } from 'src/app/infrastructure/delegate/delegate-usuario/delegate-usuario.infrastructure';
 import { loginUseCaseProviders } from 'src/app/infrastructure/delegate/delegete-login/delegate-login.infrastructure';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,8 @@ import { loginUseCaseProviders } from 'src/app/infrastructure/delegate/delegete-
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+
+  nameAPP!: string; //Desde Variables de entorno
   delegateLogin = loginUseCaseProviders;
   delegateUsuario = usuarioUseCaseProviders;
   delegateCurso = cursoUseCaseProviders;
@@ -31,7 +34,8 @@ export class NavbarComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    
+    this.nameAPP = environment.nameApp;
+
     this.logeado();
     this.actualizarRol();
     this.actualizarUsuario();
